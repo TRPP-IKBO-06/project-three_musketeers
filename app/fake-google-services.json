@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:307878778018:android:518f6a2016e9c74034f3fb",
+        "mobilesdk_app_id": "1:307878778018:android:6198680dd0d876d234f3fb",
         "android_client_info": {
-          "package_name": "fake.company.name"
+          "package_name": "main.stager"
         }
       },
       "oauth_client": [
