@@ -21,8 +21,10 @@ jobs:
         distribution: 'adopt'
     - name: Grant execute permission for decrypt
       run: chmod +x ./app/decrypt.sh
-    - name: Decrypt secret (Now it just do fake job)
-      run: mv "./app/fake-google-services.json" "./app/google-services.json"
+    - name: Decrypt secret
+      run: ./app/decrypt.sh
+      env:
+        SECRET_PASSPHRASE: ${{ secrets.SECRET_FB_PASSPHRASE }}
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Test application
