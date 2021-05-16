@@ -31,8 +31,18 @@ jobs:
       run: ./gradlew test
     - name: Build APK
       run: ./gradlew assembleRelease
-    - name: Upload APK (Unsigned)
+    - name: Change working directory
+      run: cd "app/build/outputs/apk/release/"
+    - name: Create keytool
+      run:  keytool -genkey -v -keystore stager-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias stager-key
+    - name: Shrink APK
+      run: zipalign -v -p 4 app-release-unsigned.apk stager-aligned.apk
+    - name: Sign APK
+      run: apksigner sign --ks stager-release-key.jks --out app-release-unsigned.apk stager-aligned.apk
+    - name: Rename signed APK
+      run: mv ./app-release-unsigned.apk ./stager.apk
+    - name: Upload APK
       uses: actions/upload-artifact@v2
       with:
-        name: app-release.apk
-        path: app/build/outputs/apk/release/app-release-unsigned.apk
+        name: stager.apk
+        path: ./stager.apk
