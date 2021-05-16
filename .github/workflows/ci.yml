@@ -23,9 +23,9 @@ jobs:
       run: chmod +x ./app/decrypt.sh
       
     - name: Decrypt secret
-      run: ./app/decrypt.sh
       env:
         SECRET_PASSPHRASE: ${{ secrets.SECRET_FB_PASSPHRASE }}
+      run: ./app/decrypt.sh
         
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
