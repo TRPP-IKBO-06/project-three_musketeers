@@ -3,12 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context=".Authorization" >
 
     <RelativeLayout
-        android:id="@+id/RelativeLayout_input"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
+
+        <RelativeLayout
+            android:id="@+id/RelativeLayout_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
 
             <TextView
                 android:id="@+id/welcome_at_log_in"
@@ -49,84 +54,88 @@
                 android:nextFocusForward="@+id/success_btn"
                 android:nextFocusDown="@+id/success_btn" />
 
-
-        <LinearLayout
-            android:id="@+id/LinearLayout_forgot_pass"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:layout_below="@+id/password">
-
-            <TextView
-                android:id="@+id/forget_password"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/LinearLayout_forgot_pass"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginRight="10dp"
+                android:layout_below="@+id/password"
+                android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:text="@string/AuthorizationActivity_TextView_label_ForgotPassword"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/forget_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:text="@string/AuthorizationActivity_TextView_label_ForgotPassword"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+                <Button
+                    android:id="@+id/btn_restore_acc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/AuthorizationActivity_Button_RestoreAccount"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LinearLayout_registration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_below="@+id/LinearLayout_forgot_pass">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:text="@string/AuthorizationActivity_TextView_title_Register"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+                <Button
+                    android:id="@+id/btn_registration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/AuthorizationActivity_Button_Register"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
+            </LinearLayout>
 
             <Button
-                android:id="@+id/btn_restore_acc"
-                android:layout_width="wrap_content"
+                android:id="@+id/success_btn"
+                android:layout_below="@+id/LinearLayout_registration"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:text="@string/AuthorizationActivity_Button_RestoreAccount"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/LinearLayout_registration"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="20dp"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:layout_below="@+id/LinearLayout_forgot_pass">
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginRight="10dp"
                 android:layout_marginEnd="10dp"
-                android:text="@string/AuthorizationActivity_TextView_title_Register"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                android:gravity="center"
+                android:drawableStart="@drawable/ic_baseline_check"
+                android:drawableLeft="@drawable/ic_baseline_check"
+                android:text="@string/RegistrationActivity_Button_Register"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:focusableInTouchMode="true" >
+            </Button>
 
-            <Button
-                android:id="@+id/btn_registration"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"
-                android:text="@string/AuthorizationActivity_Button_Register"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
-        </LinearLayout>
+        </RelativeLayout>
 
-        <Button
-            android:id="@+id/success_btn"
-            android:layout_below="@+id/LinearLayout_registration"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:gravity="center"
-            android:drawableStart="@drawable/ic_baseline_check"
-            android:drawableLeft="@drawable/ic_baseline_check"
-            android:text="@string/RegistrationActivity_Button_Register"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:focusableInTouchMode="true"
-            />
+        <include layout="@layout/loading_overlay" />
+
     </RelativeLayout>
+
 </androidx.core.widget.NestedScrollView>

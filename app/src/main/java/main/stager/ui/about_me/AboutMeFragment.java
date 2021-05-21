@@ -21,10 +21,21 @@ public class AboutMeFragment extends StagerVMFragment<AboutMeViewModel> {
     @Override
     protected void setEventListeners() {
         super.setEventListeners();
+
+        view.findViewById(R.id.btn_change_pass).setOnClickListener(
+                v -> navigator.navigate(R.id.transition_about_me_to_update_password));
+
         view.findViewById(R.id.btn_exit_in_acc).setOnClickListener(v -> {
+            dataProvider.unsubscribeInitial();
+
             FirebaseAuth.getInstance().signOut();
             startActivity(new Intent(this.getActivity(), MainActivity.class));
             this.getActivity().finish();
+        });
+
+        view.findViewById(R.id.DEBUG_RESUBSCRIBE).setOnClickListener(v -> {
+            dataProvider.unsubscribeInitial();
+            dataProvider.subscribeInitial();
         });
     }
 
@@ -32,6 +43,6 @@ public class AboutMeFragment extends StagerVMFragment<AboutMeViewModel> {
     protected void setObservers() {
         super.setObservers();
         bindDataTwoWay(viewModel.getName(), view.findViewById(R.id.personName), false);
-        bindDataTwoWay(viewModel.getDescription(), view.findViewById(R.id.secondName), false);
+        bindDataTwoWay(viewModel.getDescription(), view.findViewById(R.id.personDescription), false);
     }
 }

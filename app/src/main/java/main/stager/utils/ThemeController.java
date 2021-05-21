@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.res.Configuration;
 import org.jetbrains.annotations.NotNull;
 import main.stager.R;
+import main.stager.StagerApplication;
 
 public class ThemeController {
     private static int DARK_THEME = R.style.Theme_AppCompat;
@@ -33,7 +34,7 @@ public class ThemeController {
      */
     @NotNull
     public static boolean isCurrentDark(Context context) {
-        SettingsWrapper S = SettingsWrapper.getInstance();
+        SettingsWrapper S = StagerApplication.getSettings();
         if (S.isAutoTune(true))
             return isDarkByDefault(context);
         return S.isDarkTheme(isDarkByDefault(context));

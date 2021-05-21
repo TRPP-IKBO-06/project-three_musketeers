@@ -117,10 +117,15 @@ public class Registration extends SmartActivity {
              return;
         }
 
+        showLoadingScreen();
+
         fbAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(
                 task -> {
-                    if (task.isSuccessful() ) {
-                        DataProvider.getInstance().getUserName().setValue(name);
+                    hideLoadingScreen();
+                    if (task.isSuccessful()) {
+                        DataProvider dp = StagerApplication.getDataProvider();
+                        dp.subscribeInitial();
+                        dp.getUserName().setValue(name);
                         // Пользователь зарегистрировался и вошел в аккаунт
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);

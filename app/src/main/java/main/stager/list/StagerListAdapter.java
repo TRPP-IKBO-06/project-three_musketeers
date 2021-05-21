@@ -8,8 +8,6 @@ import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 import main.stager.model.FBModel;
 
@@ -27,7 +25,7 @@ public abstract class StagerListAdapter<T, VH extends RecyclerView.ViewHolder>
 
     @FunctionalInterface
     public interface OnItemClickListener<T> {
-        void onItemClick(T item, int pos);
+        void onItemClick(T item, int pos, View view);
     }
 
     public void setOnItemClickListener(OnItemClickListener<T> onItemClickListener) {
@@ -43,7 +41,7 @@ public abstract class StagerListAdapter<T, VH extends RecyclerView.ViewHolder>
     protected void bindOnItemClickListener(View view, T item, int pos){
         if (onItemClickListener != null)
             view.setOnClickListener(v -> onItemClickListener
-                    .onItemClick(item, pos));
+                    .onItemClick(item, pos, view));
     }
 
     protected abstract static class FBItemCallback<U extends FBModel> extends DiffUtil.ItemCallback<U> {

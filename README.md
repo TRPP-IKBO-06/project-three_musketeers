@@ -1,3 +1,9 @@
+<p align="center">
+ <a href="../../releases/latest">
+ <img src="./app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" height="60">
+  </a>
+</p>
+
 # project-three_musketeers
 project-three_musketeers created by GitHub Classroom
 

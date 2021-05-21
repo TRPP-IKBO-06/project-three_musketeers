@@ -3,7 +3,7 @@ package main.stager.list;
 import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.MediatorLiveData;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 import java.util.List;
@@ -14,25 +14,41 @@ import main.stager.utils.ChangeListeners.firebase.*;
 
 public abstract class StagerListViewModel<T extends FBModel> extends StagerViewModel {
 
-    protected MutableLiveData<List<T>> mValues;
+    protected MediatorLiveData<List<T>> mValues;
 
     public StagerListViewModel(@NonNull Application application) {
         super(application);
-        mValues = new MutableLiveData<>();
+        mValues = new MediatorLiveData<>();
     }
 
     protected abstract Query getListPath();
     protected abstract Class<T> getItemType();
 
-    public abstract void deleteItem(T s);
+    public void deleteItem(T s) {}
 
     public void pushItemsPositions(List<T> items) {
         DataProvider.resetPositions((DatabaseReference)getListPath(), DataProvider.getKeys(items));
     }
 
+    protected ValueListEventListener<T> getListEventListener(OnError onError) {
+        return new ValueListEventListener<T>(mValues, getItemType(), onError);
+    }
+
+    protected ValueJoinedListEventListener<T> getJoinedListEventListener(DatabaseReference source,
+                                                                         OnError onError) {
+        return new ValueJoinedListEventListener<>(mValues, getItemType(),
+                                                  onError, source);
+    }
+
     public LiveData<List<T>> getItems(OnError onError) {
-        return getData(mValues, () -> dataProvider.getSorted(getListPath()).addValueEventListener(
-                new ValueListEventListener<T>(mValues, getItemType(), onError)));
+        return getItems(onError, false);
+    }
+
+    public LiveData<List<T>> getItems(OnError onError, boolean sorted) {
+        Query ref = (!sorted) ? getListPath()
+                    : dataProvider.getSorted(getListPath());
+        return getData(mValues, () ->
+                ref.addValueEventListener(getListEventListener(onError)));
     }
 
     @Override

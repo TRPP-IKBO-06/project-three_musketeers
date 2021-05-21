@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="main.stager">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
     <application
         android:name=".StagerApplication"
         android:allowBackup="true"
@@ -11,8 +14,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Stager">
 
-        <activity android:name=".MainActivity" />
+        <service android:name=".MyFirebaseMessagingService"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
 
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".Authorization"
             android:noHistory="true">
@@ -23,12 +34,10 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".Registration"
             android:label="@string/AuthorizationActivity_Button_Register"
             android:noHistory="true" />
-
     </application>
 
 </manifest>

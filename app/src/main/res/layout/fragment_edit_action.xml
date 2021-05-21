@@ -12,6 +12,13 @@
         android:layout_height="wrap_content"
         android:inputType="text"
         android:hint="@string/EditActionFragment_message_UntitledAction" />
+    <Button
+        android:id="@+id/btn_open_action_subscribers_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="4dp"
+        android:layout_marginHorizontal="8dp"
+        android:text="@string/EditActionFragment_Button_text_Observers"/>
 
     <include layout="@layout/fragment_extendable_list"/>
 

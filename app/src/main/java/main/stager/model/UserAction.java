@@ -1,13 +1,16 @@
 package main.stager.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 @NoArgsConstructor
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class UserAction extends FBModel {
-    @Getter private Status status;
-    @Getter private String name;
+    @NonNull @Getter private Status status;
+    @NonNull @Getter private String name;
+    @Setter @Getter private String owner;
 }
 

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <string name="Notification__channel_id" translatable="false">
+        Stager.main.notification.channel.id.default.TgQs54
+    </string>
     <string name="Settings__AutoTune" translatable="false">
         Stager.main.settings.appearance.auto
     </string>

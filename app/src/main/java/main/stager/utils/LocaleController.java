@@ -6,6 +6,8 @@ import android.os.Build;
 import com.yariksoffice.lingver.Lingver;
 import org.jetbrains.annotations.NotNull;
 
+import main.stager.StagerApplication;
+
 public class LocaleController {
 
     /** Обновление языка из сохранённых предпочтнений */
@@ -25,7 +27,7 @@ public class LocaleController {
 
     /** Получить сохранённый язык */
     public static String getLocale(Context context) {
-        SettingsWrapper S = SettingsWrapper.getInstance();
+        SettingsWrapper S = StagerApplication.getSettings();
         if (S.isAutoTune(true))
             return getDefaultLocale(context);
         return S.getLocale(getDefaultLocale(context));

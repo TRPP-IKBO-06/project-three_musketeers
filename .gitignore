@@ -335,7 +335,7 @@ gradle-app.setting
 *.keystore
 
 # Google Services (e.g. APIs or Firebase)
-# google-services.json
+google-services.json
 
 # Android Patch
 
@@ -401,4 +401,4 @@ obj/
 !/gradle/wrapper/gradle-wrapper.jar
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,linux,android,androidstudio,gradle,java,firebase,jetbrains
-/app/google-services.json
+/app/src/main/java/main/stager/SECRETS.java

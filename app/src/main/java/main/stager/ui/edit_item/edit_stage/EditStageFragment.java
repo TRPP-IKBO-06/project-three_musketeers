@@ -46,15 +46,16 @@ public class EditStageFragment extends StagerVMFragment<EditStageViewModel> {
         return R.layout.fragment_edit_stage;
     }
 
+    private void updateTitle(String text) {
+        getActionBar().setTitle(Utilits.getDefaultOnNullOrBlank(text,
+            getString(R.string.EditStageFragment_message_UntitledStage
+        )));
+    }
+
     @Override
     protected void setObservers() {
         super.setObservers();
-        bindData(viewModel.getStageName(),
-                (String text) -> ((AppCompatActivity)getActivity())
-                        .getSupportActionBar()
-                        .setTitle(Utilits.getDefaultOnNullOrBlank(text,
-                                        getString(R.string.EditStageFragment_message_UntitledStage
-                                        ))));
+        bindData(viewModel.getStageName(), this::updateTitle);
         bindDataTwoWay(viewModel.getStageName(), editStageName);
         bindData(viewModel.getStageStatus(), (status) -> {
             view.findViewById(R.id.edit_stage_layout_controls)
@@ -83,10 +84,11 @@ public class EditStageFragment extends StagerVMFragment<EditStageViewModel> {
     @Override
     protected void prepareFragmentComponents() {
         super.prepareFragmentComponents();
-        ((SmartActivity)getActivity())
-                .getSupportActionBar()
-                .setTitle(mStageName);
         editStageName = view.findViewById(R.id.edit_stage_input_name);
+        updateTitle(mStageName);
+
+        // Задание начального значения
+        // (не стоит выносить в updateTitle)
         editStageName.setText(mStageName);
     }
 

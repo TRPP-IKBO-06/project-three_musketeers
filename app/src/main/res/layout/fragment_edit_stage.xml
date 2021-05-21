@@ -23,12 +23,12 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_stage_status_succes"/>
+            android:src="@drawable/ic_status_succed"/>
         <ImageButton
             android:id="@+id/edit_stage_button_abort"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_stage_status_abort"/>
+            android:src="@drawable/ic_status_aborted"/>
     </LinearLayout>
 </LinearLayout>

@@ -25,8 +25,8 @@ public class ActionsListFragment extends
     }
 
     @Override
-    protected void onItemClick(UserAction item, int pos) {
-        super.onItemClick(item, pos);
+    protected void onItemClick(UserAction item, int pos, View view) {
+        super.onItemClick(item, pos, view);
         Bundle args = new Bundle();
         args.putString(EditActionFragment.ARG_ACTION_NAME, item.getName());
         args.putString(EditActionFragment.ARG_ACTION_KEY, item.getKey());

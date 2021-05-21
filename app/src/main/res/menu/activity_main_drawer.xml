@@ -13,8 +13,16 @@
             android:icon="@drawable/ic_menu_contacts"
             android:title="@string/SideBarActivity_NavigationItem_MyContacts" />
         <item
+            android:id="@+id/nav_contact_requests"
+            android:icon="@drawable/ic_contact_request"
+            android:title="@string/ContactRequestsTabsFragment_title" />
+        <item
             android:id="@+id/nav_my_actions"
             android:icon="@drawable/ic_menu_actions"
             android:title="@string/SideBarActivity_NavigationItem_MyActions" />
+        <item
+            android:id="@+id/nav_monitored_actions"
+            android:icon="@drawable/ic_eye_24"
+            android:title="@string/MonitoredActions_title" />
     </group>
 </menu>

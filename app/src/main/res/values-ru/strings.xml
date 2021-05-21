@@ -17,6 +17,17 @@
     <string name="AuthorizationActivity_Button_RestoreAccount">Восстановить аккаунт</string>
     <string name="AuthorizationActivity_TextView_title_Register">Еще нет аккаунта?</string>
     <string name="AuthorizationActivity_Button_Register">Регистрация</string>
+    <string name="AuthorizationActivity_ErrorMessage_NoInternet">Нет подключения к интернету</string>
+    <string name="AuthorizationActivity_ErrorMessage_NoEmail">Требуется электронная почта</string>
+    <string name="AuthorizationActivity_ErrorMessage_NoValidEmail">Пожалуйста,
+        введите действительный адрес электронной почты</string>
+    <string name="AuthorizationActivity_ErrorMessage_NoPassword">Требуется пароль</string>
+    <string name="AuthorizationActivity_ErrorMessage_MinLengthPassword">Минимальная длина пароля
+        должна быть 6</string>
+    <string name="AuthorizationActivity_Toast_CheckEmail">Проверьте свою электронную почту</string>
+    <string name="AuthorizationActivity_Toast_ErrorRestore">Вы не можете восстановить
+        свою учетную запись</string>
+    <string name="AuthorizationActivity_Toast_ErrorAuthorization">Ошибка авторизации</string>
 
     <!-- Настройки -->
     <string name="Settings_title">Настройки</string>
@@ -27,14 +38,19 @@
         <string name="Settings_Appearance_Switch_summaryOn_DarkMode">Текущая тема: Тёмная</string>
         <string name="Settings_Appearance_Switch_summaryOff_LightMode">Текущая тема: Светлая</string>
         <string name="Settings_Appearance_List_label_Locale">Язык</string>
-        <string name="Settings_Appearance_List_summary_Locale" formatted="true">
-            Текущий язык: %1$s</string>
+        <string name="Settings_Appearance_List_summary_Locale">Текущий язык: %1$s</string>
 
     <!-- Список этапов -->
-    <string name="StagesFragment_title" formatted="true">
-        Этапы \'%1$s\'"</string>
+    <string name="EditActionFragment_title">Этапы \"%s\"</string>
     <string name="EditActionFragment_message_UntitledAction">Без названия</string>
     <string name="EditActionFragment_StagesList_NoItemsMessage">Стадий пока нет..</string>
+    <string name="EditActionFragment_Button_text_Observers">Наблюдатели</string>
+
+    <!-- Отслеживаемое мероприятие -->
+    <string name="MonitoredActionFragment_title">Этапы \"%s\"</string>
+    <string name="MonitoredActionFragment_message_UntitledAction">Без названия</string>
+    <string name="MonitoredActionFragment_StagesList_NoItemsMessage">Стадий пока нет..</string>
+    <string name="MonitoredActionFragment_Button_text_Owner">Владелец</string>
 
     <!-- Боковое меню -->
     <string name="SideBarActivity_title">Боковое меню</string>
@@ -47,9 +63,28 @@
 
     <!-- Обо мне -->
     <string name="AboutMeFragment_TextView_title_MyAccount">Мой аккаунт</string>
+    <string name="AboutMeFragment_EditText_hint_contextName">Имя</string>
+    <string name="AboutMeFragment_EditText_hint_contextDescription">Описание</string>
     <string name="AboutMeFragment_Button_ExitInAccount">Выход из аккаунта</string>
     <string name="AboutMeFragment_TextView_label_ChangePassword">Хотите сменить пароль?</string>
     <string name="AboutMeFragment_Button_ChangePassword">Сменить</string>
+
+    <!-- Обновить пароль -->
+    <string name="UpdatePasswordFragment_title">Смена пароля</string>
+    <string name="UpdatePasswordFragment_TextView_title_ChangePassword">Смена пароля</string>
+    <string name="UpdatePasswordFragment_TextView_label_Info">Чтобы сменить пароль, введите текущий</string>
+    <string name="UpdatePasswordFragment_TextView_title_ConfirmOldPassword">Подтверждение пароля</string>
+    <string name="UpdatePasswordFragment_EditText_hint_context">Введите старый пароль</string>
+    <string name="UpdatePasswordFragment_ErrorMessage_MinLengthPassword">Минимальная длина пароля
+        6 символов</string>
+    <string name="UpdatePasswordFragment_ErrorMessage_PasswordIsNotCorrect">Пароль неправильный</string>
+    <string name="UpdatePasswordFragment_Button_ConfirmOldPassword">Подтвердить старый пароль</string>
+    <string name="UpdatePasswordFragment_EditText_hint_NewPassword">Новый пароль</string>
+    <string name="UpdatePasswordFragment_ErrorMessage_PasswordsDoNotMatch">Пароли не совпадают</string>
+    <string name="UpdatePasswordFragment_EditText_hint_NewPasswordConfirm">Подтвердите пароль</string>
+    <string name="UpdatePasswordFragment_Button_ChangePassword">Сменить</string>
+    <string name="UpdatePasswordFragment_Toast_PasswordUpdate">Пароль изменен</string>
+    <string name="UpdatePasswordFragment_ErrorMessage_PasswordNotUpdate">Пароль не изменен</string>
 
     <!-- Добавить мероприятие -->
     <string name="AddActionFragment_title">Новое мероприятие</string>
@@ -66,6 +101,9 @@
     <!-- Меню редактирования чего-либо -->
     <string name="ItemEditMenu_title_SaveChanges">Сохранить</string>
 
+    <!-- Меню поиска -->
+    <string name="SearchMenu_title">Поиск</string>
+
     <!-- Общее для списков -->
     <string name="CommonList_EmptyListView_TextView_text">Тут ничего нет</string>
     <string name="CommonList_LoadingListView_TextView_text">Загрузка...</string>
@@ -74,4 +112,49 @@
     <!-- Изменить этап мероприятия -->
     <string name="EditStageFragment_title">Этап</string>
     <string name="EditStageFragment_message_UntitledStage">Безымянный этап</string>
+
+    <!-- Найти новые контакты -->
+    <string name="FindNewContactsFragment_title">Найти новый контакт</string>
+    <string name="FindNewContactsFragment_message_revoke">Отменён запрос к \"%s\"</string>
+    <string name="FindNewContactsFragment_message_success">Запрос отправлен \"%s\"</string>
+    <string name="FindNewContactsFragment_message_denied">Запрос отклонён</string>
+    <string name="FindNewContactsFragment_message_queryHint">Введите адрес эл.почты</string>
+
+    <!-- Найти контакты -->
+    <string name="FindContactsFragment_title">Найти контакт</string>
+    <string name="FindContactsFragment_message_queryHint">Введите имя</string>
+    <string name="FindContactsFragment_message_revoke">Закрыт доступ для \"%s\"</string>
+    <string name="FindContactsFragment_message_success">Предоставлен доступ для \"%s\"</string>
+
+    <!-- Изменить список наблюдателей мероприятия -->
+    <string name="EditSubscribersFragment_title">Следят за \"%s\"</string>
+
+    <!-- Информация о контакте -->
+    <string name="ContactInfoFragment_title">Сведения о \"%s\"</string>
+    <string name="ContactInfoFragment_TextView_label_UserName">Имя:</string>
+    <string name="ContactInfoFragment_TextView_label_UserEmail">Почта:</string>
+    <string name="ContactInfoFragment_TextView_label_Description">Описание:</string>
+    <string name="ContactInfoFragment_message_AnonymousUser">Анонимный Пользователь</string>
+    <string name="ContactInfoFragment_header_type_incoming">Входящий запрос</string>
+    <string name="ContactInfoFragment_header_type_outgoing">Исходящий запрос</string>
+    <string name="ContactInfoFragment_header_type_ignored">Вы скрыли этот запрос</string>
+    <string name="ContactInfoFragment_header_type_accepted">Из контактов</string>
+
+    <!-- Запрос на добавление контакта -->
+    <string name="ContactRequestsTabsFragment_title">Предложения дружбы</string>
+    <string name="ContactRequestsTabsFragment_Tab_title_incoming">Входящие</string>
+    <string name="ContactRequestsTabsFragment_Tab_title_outgoing">Исходящие</string>
+    <string name="ContactRequestsTabsFragment_Tab_title_ignored">Скрытые</string>
+
+    <!-- Отслеживаемые мероприятия -->
+    <string name="MonitoredActions_title">Отслеживаемые мероприятия</string>
+        <!-- Все -->
+        <string name="AllMonitoredActions_title">Все</string>
+
+        <!-- Сгрупперованные -->
+        <string name="GroupedMonitoredActions_title">Сгруппированные</string>
+
+    <!-- Уведомления -->
+    <string name="Notifications_group_Friendship">Дружба</string>
+    <string name="Notifications_message_FriendshipRequest">Вам пришёл новый запрос в друзья :)</string>
 </resources>

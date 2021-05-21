@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Button;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +14,7 @@ import main.stager.R;
 import main.stager.Base.StagerFragment;
 
 public abstract class AddItemFragment extends StagerFragment {
+    protected Button btnSaveChanges;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -25,6 +28,16 @@ public abstract class AddItemFragment extends StagerFragment {
         ((AppCompatActivity) getActivity())
                 .getSupportActionBar()
                 .setHomeAsUpIndicator(R.drawable.ic_close);
+        btnSaveChanges = view.findViewById(R.id.btn_save_changes);
+    }
+
+    @Override
+    protected void setEventListeners() {
+        super.setEventListeners();
+        if (btnSaveChanges != null)
+            btnSaveChanges.setOnFocusChangeListener((v, focused) -> {
+                if (focused) saveChanges();
+            });
     }
 
     @Override

@@ -11,5 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
+        android:nextFocusForward="@id/btn_save_changes"
+        android:nextFocusDown="@id/btn_save_changes"
         android:hint="@string/AddActionFragment_EditText_hint_context" />
+
+    <Button
+        android:id="@+id/btn_save_changes"
+        android:layout_width="1dp"
+        android:layout_height="1dp"/>
 </LinearLayout>

@@ -18,7 +18,12 @@ import main.stager.utils.ThemeController;
 
 public class SettingsFragment extends PreferenceFragmentCompat
 implements SharedPreferences.OnSharedPreferenceChangeListener {
-    private final SettingsWrapper S = SettingsWrapper.getInstance();
+    private final SettingsWrapper S;
+
+    public SettingsFragment() {
+        super();
+        S = StagerApplication.getSettings();
+    }
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -50,7 +55,7 @@ implements SharedPreferences.OnSharedPreferenceChangeListener {
 
                 prefs.edit().commit(); // Гарантирия сохранности
                 if (S.AUTO_TUNE.equals(key))
-                    ((StagerApplication)getActivity().getApplication()).restart(getActivity());
+                    StagerApplication.restart(getActivity());
                 else
                     getActivity().recreate();
             }

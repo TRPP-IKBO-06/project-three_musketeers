@@ -8,4 +8,6 @@
 
     <include layout="@layout/activity_side_bar" />
 
+    <include layout="@layout/loading_overlay" />
+
 </RelativeLayout>

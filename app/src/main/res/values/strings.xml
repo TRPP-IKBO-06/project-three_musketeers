@@ -16,6 +16,15 @@
     <string name="AuthorizationActivity_TextView_title_Register">Don`t have an account yet?</string>
     <string name="AuthorizationActivity_Button_RestoreAccount">Restore account</string>
     <string name="AuthorizationActivity_Button_Register">Registration</string>
+    <string name="AuthorizationActivity_ErrorMessage_NoInternet">No internet connection</string>
+    <string name="AuthorizationActivity_ErrorMessage_NoEmail">E-mail is required</string>
+    <string name="AuthorizationActivity_ErrorMessage_NoValidEmail">Please enter a valid E-mail</string>
+    <string name="AuthorizationActivity_ErrorMessage_NoPassword">Password is required</string>
+    <string name="AuthorizationActivity_ErrorMessage_MinLengthPassword">Minimum length of password should be 6</string>
+    <string name="AuthorizationActivity_Toast_CheckEmail">Check your E-mail</string>
+    <string name="AuthorizationActivity_Toast_ErrorRestore">You can`t restore your account</string>
+    <string name="AuthorizationActivity_Toast_ErrorAuthorization">Authorization error</string>
+
 
     <!-- Settings -->
     <string name="Settings_title">Settings</string>
@@ -26,14 +35,19 @@
         <string name="Settings_Appearance_Switch_summaryOn_DarkMode">Current theme: Dark</string>
         <string name="Settings_Appearance_Switch_summaryOff_LightMode">Current theme: Light</string>
         <string name="Settings_Appearance_List_label_Locale">Language</string>
-        <string name="Settings_Appearance_List_summary_Locale" formatted="true">
-            Current language: %1$s</string>
+        <string name="Settings_Appearance_List_summary_Locale">Current language: %1$s</string>
 
     <!-- Edit action -->
-    <string name="StagesFragment_title" formatted="true">
-        Stages of \'%1$s\'</string>
+    <string name="EditActionFragment_title">Stages of \"%s\"</string>
     <string name="EditActionFragment_message_UntitledAction">Untitled</string>
     <string name="EditActionFragment_StagesList_NoItemsMessage">No stages yet..</string>
+    <string name="EditActionFragment_Button_text_Observers">Observers</string>
+
+    <!-- Monitored action -->
+    <string name="MonitoredActionFragment_title">Stages of \"%s\"</string>
+    <string name="MonitoredActionFragment_message_UntitledAction">Untitled</string>
+    <string name="MonitoredActionFragment_StagesList_NoItemsMessage">No stages yet..</string>
+    <string name="MonitoredActionFragment_Button_text_Owner">Owner</string>
 
     <!-- SideBar -->
     <string name="SideBarActivity_title">SideBar</string>
@@ -46,9 +60,29 @@
 
     <!-- About me -->
     <string name="AboutMeFragment_TextView_title_MyAccount">My account</string>
+    <string name="AboutMeFragment_EditText_hint_contextName">Name</string>
+    <string name="AboutMeFragment_EditText_hint_contextDescription">Description</string>
     <string name="AboutMeFragment_TextView_label_ChangePassword">Сhange your password?</string>
     <string name="AboutMeFragment_Button_ChangePassword">Change</string>
     <string name="AboutMeFragment_Button_ExitInAccount">Log out of account</string>
+
+    <!-- Update password -->
+    <string name="UpdatePasswordFragment_title">Change password</string>
+    <string name="UpdatePasswordFragment_TextView_title_ConfirmOldPassword">Confirm Password</string>
+    <string name="UpdatePasswordFragment_TextView_label_Info">To change your password,
+        enter the current one</string>
+    <string name="UpdatePasswordFragment_EditText_hint_context">Enter your old password</string>
+    <string name="UpdatePasswordFragment_ErrorMessage_MinLengthPassword">Minimum length of
+        password should be 6</string>
+    <string name="UpdatePasswordFragment_ErrorMessage_PasswordIsNotCorrect">Password isn`t correct</string>
+    <string name="UpdatePasswordFragment_Button_ConfirmOldPassword">Confirm old password</string>
+    <string name="UpdatePasswordFragment_TextView_title_ChangePassword">Change password</string>
+    <string name="UpdatePasswordFragment_EditText_hint_NewPassword">New password</string>
+    <string name="UpdatePasswordFragment_ErrorMessage_PasswordsDoNotMatch">Passwords don`t match</string>
+    <string name="UpdatePasswordFragment_EditText_hint_NewPasswordConfirm">Confirm password</string>
+    <string name="UpdatePasswordFragment_Button_ChangePassword">Change it</string>
+    <string name="UpdatePasswordFragment_Toast_PasswordUpdate">Password update</string>
+    <string name="UpdatePasswordFragment_ErrorMessage_PasswordNotUpdate">Password not update</string>
 
     <!-- Add action -->
     <string name="AddActionFragment_title">New action</string>
@@ -65,6 +99,9 @@
     <!-- Item edit menu -->
     <string name="ItemEditMenu_title_SaveChanges">Save</string>
 
+    <!-- Search menu -->
+    <string name="SearchMenu_title">Search</string>
+
     <!-- Common List -->
     <string name="CommonList_EmptyListView_TextView_text">Here is nothing</string>
     <string name="CommonList_LoadingListView_TextView_text">Loading...</string>
@@ -73,4 +110,49 @@
     <!-- Edit action stage -->
     <string name="EditStageFragment_title">Stage</string>
     <string name="EditStageFragment_message_UntitledStage">Untitled stage</string>
+
+    <!-- Find new contacts -->
+    <string name="FindNewContactsFragment_title">Find new contact</string>
+    <string name="FindNewContactsFragment_message_revoke">Revoke request to \"%s\"</string>
+    <string name="FindNewContactsFragment_message_success">Send request to \"%s\"</string>
+    <string name="FindNewContactsFragment_message_denied">Request denied</string>
+    <string name="FindNewContactsFragment_message_queryHint">Input E-mail</string>
+
+    <!-- Find contacts -->
+    <string name="FindContactsFragment_title">Find contact</string>
+    <string name="FindContactsFragment_message_queryHint">Input name</string>
+    <string name="FindContactsFragment_message_revoke">Revoke access from \"%s\"</string>
+    <string name="FindContactsFragment_message_success">Grant access to \"%s\"</string>
+
+    <!-- Edit action subscribers -->
+    <string name="EditSubscribersFragment_title">Observe \"%s\"</string>
+
+    <!-- Contact info -->
+    <string name="ContactInfoFragment_title">About \"%s\"</string>
+    <string name="ContactInfoFragment_TextView_label_UserName">Name:</string>
+    <string name="ContactInfoFragment_TextView_label_UserEmail">E-mail:</string>
+    <string name="ContactInfoFragment_TextView_label_Description">Description:</string>
+    <string name="ContactInfoFragment_message_AnonymousUser">Anonymous User</string>
+    <string name="ContactInfoFragment_header_type_incoming">Incoming request</string>
+    <string name="ContactInfoFragment_header_type_outgoing">Outgoing request</string>
+    <string name="ContactInfoFragment_header_type_ignored">You hide this request</string>
+    <string name="ContactInfoFragment_header_type_accepted">In your contacts</string>
+
+    <!-- Contact requests -->
+    <string name="ContactRequestsTabsFragment_title">Friendship requests</string>
+    <string name="ContactRequestsTabsFragment_Tab_title_incoming">Incoming</string>
+    <string name="ContactRequestsTabsFragment_Tab_title_outgoing">Outgoing</string>
+    <string name="ContactRequestsTabsFragment_Tab_title_ignored">Ignored</string>
+
+    <!-- Monitored actions -->
+    <string name="MonitoredActions_title">Monitored actions</string>
+        <!-- All -->
+        <string name="AllMonitoredActions_title">All</string>
+
+        <!-- Grouped -->
+        <string name="GroupedMonitoredActions_title">Grouped</string>
+
+    <!-- Notifications -->
+    <string name="Notifications_group_Friendship">Friendship</string>
+    <string name="Notifications_message_FriendshipRequest">You\'ve got new friendship request :)</string>
 </resources>

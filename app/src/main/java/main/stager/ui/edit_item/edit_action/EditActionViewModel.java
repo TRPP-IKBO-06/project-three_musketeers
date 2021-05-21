@@ -5,6 +5,9 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import com.google.firebase.database.Query;
+
+import java.util.List;
+
 import lombok.Setter;
 import main.stager.list.StagerListViewModel;
 import main.stager.model.Stage;
@@ -41,5 +44,11 @@ public class EditActionViewModel extends StagerListViewModel<Stage> {
         super.buildBackPath();
         backPath.put(actionName,
                 dataProvider.getActionName(actionKey));
+    }
+
+    @Override
+    public void pushItemsPositions(List<Stage> items) {
+        super.pushItemsPositions(items);
+        dataProvider.resetActionStatus(actionKey);
     }
 }

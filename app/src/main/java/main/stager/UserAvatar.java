@@ -23,6 +23,7 @@ import main.stager.utils.Utilits;
 public class UserAvatar extends View {
     private String mUserName;
     private String mName;
+    private String mEmail;
     private Rect mTextBoundRect = new Rect();
     private Paint paint = new Paint();
 
@@ -43,18 +44,22 @@ public class UserAvatar extends View {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
+    public void setEmail(String email) {
+        this.mEmail = email;
+    }
+
     private void updateName() {
-        String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
 
         mName = (Utilits.isNullOrBlank(mUserName) || mUserName.trim().length() < 2)
-                ? ((Utilits.isNullOrBlank(email) || email.trim().length() < 2)
+                ? ((Utilits.isNullOrBlank(mEmail) || mEmail.trim().length() < 2)
                     ? "A"
-                    : email)
+                    : mEmail)
                 : mUserName;
 
         mName = mName.trim().toUpperCase();
         if (mName.length() > 2)
             mName = mName.substring(0,2);
+        invalidate();
     }
 
     public void setUserName(String userName) {
@@ -102,7 +107,7 @@ public class UserAvatar extends View {
 
         paint.setStyle(Paint.Style.FILL);
         paint.setAntiAlias(true);
-        paint.setTextSize(80);
+        paint.setTextSize((int) (radius * 0.9));
 
         // Подсчитаем размер текста
         paint.getTextBounds(mName, 0, mName.length(), mTextBoundRect);

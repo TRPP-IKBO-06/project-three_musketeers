@@ -11,18 +11,20 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Query;
 import java.util.ArrayList;
 import java.util.List;
 import main.stager.R;
+import main.stager.StagerApplication;
 import main.stager.utils.ChangeListeners.firebase.ValueRemovedListener;
 import main.stager.utils.DataProvider;
 import main.stager.utils.Utilits;
 
 public abstract class StagerFragment extends Fragment {
-    protected static DataProvider dataProvider = DataProvider.getInstance();
+    protected static DataProvider dataProvider = StagerApplication.getDataProvider();
 
     // Зависимости
-    protected List<DatabaseReference> dependencies;
+    protected List<Query> dependencies;
 
     // Требует переопределения
     protected abstract @LayoutRes int getViewBaseLayoutId();
@@ -78,14 +80,15 @@ public abstract class StagerFragment extends Fragment {
                 @Override public void onValueRemoved() { close(); }
             };
 
-        for (DatabaseReference ref: dependencies)
+        for (Query ref: dependencies)
             ref.addValueEventListener(onValueRemovedListener);
     }
 
     protected void unbindDependencies() {
         if (Utilits.isNullOrEmpty(dependencies)
                 || onValueRemovedListener == null) return;
-        for (DatabaseReference ref: dependencies)
+
+        for (Query ref: dependencies)
             ref.removeEventListener(onValueRemovedListener);
     }
 
@@ -96,5 +99,19 @@ public abstract class StagerFragment extends Fragment {
     protected void close() {
         if (!isSafe()) return;
         navigator.navigateUp();
+    }
+
+    protected void showLoadingScreen() {
+        try {
+            ((SmartActivity) getActivity()).showLoadingScreen();
+        } catch (Throwable ignore) {
+        }
+    }
+
+    protected void hideLoadingScreen() {
+        try {
+            ((SmartActivity) getActivity()).hideLoadingScreen();
+        } catch (Throwable ignore) {
+        }
     }
 }

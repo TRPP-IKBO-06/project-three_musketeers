@@ -9,13 +9,14 @@ import androidx.annotation.NonNull;
 import androidx.navigation.fragment.NavHostFragment;
 
 import main.stager.Authorization;
+import main.stager.StagerApplication;
 import main.stager.utils.DataProvider;
 import main.stager.R;
 
 public abstract class AuthorizedOnlyActivity extends SmartActivity {
 
     // Firebase
-    protected static DataProvider dataProvider = DataProvider.getInstance();
+    protected static DataProvider dataProvider = StagerApplication.getDataProvider();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +48,7 @@ public abstract class AuthorizedOnlyActivity extends SmartActivity {
             return super.onOptionsItemSelected(item);
         ((NavHostFragment)getSupportFragmentManager()
             .findFragmentById(R.id.nav_host_fragment))
-            .getNavController().navigate(R.id.transition_settings);
+            .getNavController().navigate(R.id.transition_to_settings);
         return true;
     }
 }

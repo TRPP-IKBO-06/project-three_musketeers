@@ -3,6 +3,8 @@ package main.stager.ui.edit_item.edit_action;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,6 +16,7 @@ import main.stager.R;
 import main.stager.linkers.LStatus;
 import main.stager.list.StagerListAdapter;
 import main.stager.model.Stage;
+import main.stager.model.Status;
 import main.stager.utils.Utilits;
 
 /**
@@ -21,6 +24,8 @@ import main.stager.utils.Utilits;
  */
 public class ActionStageRecyclerViewAdapter
         extends StagerListAdapter<Stage, ActionStageRecyclerViewAdapter.ViewHolder> {
+
+    private Animation rotateAnimation;
 
     private static DiffUtil.ItemCallback<Stage> DIFF_CALLBACK = new FBItemCallback<Stage>() {
         @Override
@@ -40,6 +45,8 @@ public class ActionStageRecyclerViewAdapter
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.fragment_list_item,
                         parent, false);
+        if (rotateAnimation == null)
+            rotateAnimation = AnimationUtils.loadAnimation(view.getContext(), R.anim.rotation);
         return new ViewHolder(view);
     }
 
@@ -54,6 +61,10 @@ public class ActionStageRecyclerViewAdapter
 
         holder.mStatusView.setImageResource(LStatus.toIcon(
                 holder.mItem.getCurrentStatus()));
+
+        if (holder.mItem.getCurrentStatus() == Status.WAITING)
+            holder.mStatusView.startAnimation(rotateAnimation);
+
         bindOnItemClickListener(holder.mView, holder.mItem, position);
     }
 
