@@ -39,20 +39,20 @@ jobs:
     - name: Change working directory
       run: cd "app/build/outputs/apk/release/"
       
-    - name: Create keytool
-      run:  keytool -genkey -v -keystore stager-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias stager-key
-    
-    - name: Shrink APK
-      run: zipalign -v -p 4 app-release-unsigned.apk stager-aligned.apk
-    
-    - name: Sign APK
-      run: apksigner sign --ks stager-release-key.jks --out app-release-unsigned.apk stager-aligned.apk
-    
-    - name: Rename signed APK
-      run: mv ./app-release-unsigned.apk ./stager.apk
+    - name: Sign app APK
+      uses: r0adkll/sign-android-release@v1
+      id: sign_app
+      with:
+        releaseDirectory: ./
+        signingKeyBase64: ${{ secrets.SIGNING_KEY }}
+        alias: ${{ secrets.ALIAS }}
+        keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+        keyPassword: ${{ secrets.KEY_PASSWORD }}
+      env:
+        BUILD_TOOLS_VERSION: "29.0.3"
     
     - name: Upload APK
       uses: actions/upload-artifact@v2
       with:
-        name: stager.apk
-        path: ./stager.apk
+        name: Signed app bundle
+        path: ${{steps.sign_app.outputs.signedReleaseFile}}
