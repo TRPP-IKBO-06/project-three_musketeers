@@ -61,7 +61,6 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ github.token }}
       with:
-        tag_name: ${{ github.ref }}
         release_name: Release ${{ github.ref }}
       
     - name: Upload Release Asset
