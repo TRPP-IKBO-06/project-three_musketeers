@@ -6,6 +6,8 @@ name: Java CI with Gradle
 on:
   push:
     branches: [ main, future ]
+    tags:        
+      - release-v*
 
 jobs:
   build:
@@ -54,11 +56,6 @@ jobs:
         name: Signed app bundle
         path: ${{steps.sign_app.outputs.signedReleaseFile}}
 
-  publish:
-    runs-on: ubuntu-latest
-    if: contains( github.ref, 'release')
-    needs: build
-    steps:
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
