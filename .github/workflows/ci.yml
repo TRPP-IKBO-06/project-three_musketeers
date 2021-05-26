@@ -48,6 +48,9 @@ jobs:
       env:
         BUILD_TOOLS_VERSION: "29.0.3"
       
+    - name: Check file
+      run: ls app/build/outputs/apk/release/ && echo ${{steps.sign_app.outputs.signedReleaseFile}}
+      
     - name: Upload APK
       uses: actions/upload-artifact@v2
       with:
