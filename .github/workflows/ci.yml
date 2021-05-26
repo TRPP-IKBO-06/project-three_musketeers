@@ -55,6 +55,7 @@ jobs:
         path: ${{steps.sign_app.outputs.signedReleaseFile}}
         
     - name: Create Release
+      if: contains( ${{ github.ref }}, "release")
       id: create_release
       uses: actions/create-release@v1
       env:
