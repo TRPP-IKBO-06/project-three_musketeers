@@ -29,4 +29,12 @@
             app:entryValues="@array/locales"
             />
     </PreferenceCategory>
+    <PreferenceCategory app:title="@string/Settings_Category_title_Privacy">
+        <SwitchPreferenceCompat
+            app:key="@string/Settings__HideEmail"
+            app:title="@string/Settings_Privacy_label_HideEmail"
+            android:icon="@drawable/ic_email_24"
+            app:summary="@string/Settings_Privacy_Switch_summary_HideEmail"
+            />
+    </PreferenceCategory>
 </PreferenceScreen>

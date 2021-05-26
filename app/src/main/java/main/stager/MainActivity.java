@@ -32,16 +32,21 @@ public class MainActivity extends AuthorizedOnlyActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_about_me, R.id.nav_my_contacts, R.id.nav_my_actions)
+                R.id.nav_about_me,
+                R.id.nav_my_contacts,
+                R.id.nav_contact_requests,
+                R.id.nav_monitored_actions,
+                R.id.nav_my_actions)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-        // Актуализируем email на сервере
-        String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
-        dataProvider.getUserEmail().setValue(email);
+        String email = dataProvider.getEmail();
+        if (!StagerApplication.getSettings().isEmailHidden(false))
+            // Актуализируем email на сервере
+            dataProvider.getUserEmail().setValue(email);
 
         navBarViewModel = new ViewModelProvider(this).get(NavBarViewModel.class);
         navBarViewModel.buildBackPath();

@@ -36,6 +36,10 @@
         <string name="Settings_Appearance_Switch_summaryOff_LightMode">Current theme: Light</string>
         <string name="Settings_Appearance_List_label_Locale">Language</string>
         <string name="Settings_Appearance_List_summary_Locale">Current language: %1$s</string>
+    <string name="Settings_Category_title_Privacy">Privacy</string>
+        <string name="Settings_Privacy_label_HideEmail">Hide email</string>
+        <string name="Settings_Privacy_Switch_summary_HideEmail">Hides email from available contacts</string>
+
 
     <!-- Edit action -->
     <string name="EditActionFragment_title">Stages of \"%s\"</string>

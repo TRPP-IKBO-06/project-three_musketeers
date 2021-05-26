@@ -2,7 +2,6 @@ package main.stager.ui.my_contacts;
 
 import android.os.Bundle;
 import android.view.View;
-
 import main.stager.R;
 import main.stager.list.StagerExtendableList;
 import main.stager.model.Contact;

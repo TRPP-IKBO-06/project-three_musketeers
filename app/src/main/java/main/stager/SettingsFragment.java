@@ -4,14 +4,14 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.preference.ListPreference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 import androidx.preference.SwitchPreferenceCompat;
-
+import java.util.HashSet;
+import java.util.Set;
 import main.stager.utils.LocaleController;
 import main.stager.utils.SettingsWrapper;
 import main.stager.utils.ThemeController;
@@ -19,46 +19,76 @@ import main.stager.utils.ThemeController;
 public class SettingsFragment extends PreferenceFragmentCompat
 implements SharedPreferences.OnSharedPreferenceChangeListener {
     private final SettingsWrapper S;
+    private final Set<String> requireRelaunchActivity;
+    private final Set<String> requireRestartApp;
+
+    private SwitchPreferenceCompat P_THEME;
+    private ListPreference P_LOCALE;
+    private SwitchPreferenceCompat P_AUTO_TUNE;
+    private SwitchPreferenceCompat P_HIDE_EMAIL;
+
+    private void initPrefRefs() {
+        P_AUTO_TUNE = findPreference(S.AUTO_TUNE);
+        P_HIDE_EMAIL = findPreference(S.HIDE_EMAIL);
+        P_LOCALE = findPreference(S.LOCALE);
+        P_THEME = findPreference(S.THEME);
+    }
 
     public SettingsFragment() {
         super();
         S = StagerApplication.getSettings();
+        requireRelaunchActivity = new HashSet<String>() {{
+           add(S.THEME);
+           add(S.LOCALE);
+        }};
+
+        requireRestartApp = new HashSet<String>() {{
+           add(S.AUTO_TUNE);
+        }};
     }
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         setPreferencesFromResource(R.xml.settings, rootKey);
+        initPrefRefs();
         autoTune();
 
         // Добавляем реакции на изменение различных опций
         PreferenceManager.getDefaultSharedPreferences(getContext())
                 .registerOnSharedPreferenceChangeListener(this);
+        setPreferenceChangeListeners();
+    }
+
+    private void setPreferenceChangeListeners() {
+        P_HIDE_EMAIL.setOnPreferenceChangeListener((preference, newValue) -> {
+            if ((Boolean) newValue)
+                StagerApplication.getDataProvider().deleteEmail();
+            else
+                StagerApplication.getDataProvider().saveEmail();
+            return true;
+        });
     }
 
     private void autoTune() {
-        if (!PreferenceManager.getDefaultSharedPreferences(getContext())
-                .getBoolean(S.AUTO_TUNE, true)) return;
-
-        SwitchPreferenceCompat theme = findPreference(S.THEME);
-        theme.setChecked(ThemeController.isDarkByDefault(getContext()));
-
-        ListPreference language = findPreference(S.LOCALE);
-        language.setValue(LocaleController.getDefaultLocale(getContext()));
+        if (!S.isAutoTune(true)) return;
+        P_THEME.setChecked(ThemeController.isDarkByDefault(getContext()));
+        P_LOCALE.setValue(LocaleController.getDefaultLocale(getContext()));
     }
 
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-        // Смена темы или языка
         try {
-            if (S.THEME.equals(key) ||
-                S.AUTO_TUNE.equals(key) ||
-                S.LOCALE.equals(key)) {
+            boolean needRestartApp = requireRestartApp.contains(key);
+            boolean needReload = requireRelaunchActivity.contains(key) || needRestartApp;
 
-                prefs.edit().commit(); // Гарантирия сохранности
-                if (S.AUTO_TUNE.equals(key))
-                    StagerApplication.restart(getActivity());
-                else
-                    getActivity().recreate();
-            }
+            if (!needReload)
+                return;
+
+            prefs.edit().commit(); // Гарантирия сохранности
+            if (needRestartApp)
+                StagerApplication.restart(getActivity());
+            else
+                getActivity().recreate();
+
         } catch (Throwable ignore) {}
     }
 

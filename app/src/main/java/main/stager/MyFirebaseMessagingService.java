@@ -16,8 +16,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             getString(R.string.Notification__channel_id)
         );
 
-        StagerApplication.getPushNotificationHandler()
-                         .handleAny(builder, remoteMessage);
+        if (!StagerApplication.getPushNotificationHandler()
+                              .handleAny(builder, remoteMessage))
+            return;
 
         NotificationManagerCompat.from(getApplicationContext()).notify(
             new Random().nextInt(3000),

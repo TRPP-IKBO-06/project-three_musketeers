@@ -1,17 +1,17 @@
 package main.stager.ui.my_contacts;
 
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
-import org.jetbrains.annotations.NotNull;
 import main.stager.R;
 import main.stager.UserAvatar;
 import main.stager.list.StagerListAdapter;
+import main.stager.list.StagerViewHolder;
 import main.stager.model.Contact;
 import main.stager.utils.Utilits;
 
@@ -32,19 +32,18 @@ public class ContactRecyclerViewAdapter
         super(DIFF_CALLBACK);
     }
 
-    @NotNull
     @Override
-    public ViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_list_item_contact,
-                        parent, false);
-        return new ViewHolder(view);
+    protected Class<ViewHolder> getViewHolderType() {
+        return ViewHolder.class;
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.mItem = getItem(position);
+    protected int getItemListLayout() {
+        return R.layout.fragment_list_item_contact;
+    }
 
+    @Override
+    protected void onBindViewHolderInner(final ViewHolder holder, int position) {
         TextView textView = (TextView) holder.mView.findViewById(R.id.item_email);
         if (Utilits.isNullOrBlank(holder.mItem.getName()))
             holder.mNameView.setText(R.string.ContactInfoFragment_message_AnonymousUser);
@@ -53,26 +52,29 @@ public class ContactRecyclerViewAdapter
 
         if (Utilits.isNullOrBlank(holder.mItem.getEmail())) {
             holder.mEmailView.setVisibility(View.GONE);
-            textView.setLayoutParams(new TableLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, 0f));
-        }
-        else
+            textView.setLayoutParams(new TableLayout.LayoutParams(
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT, 0f));
+        } else {
+            textView.setLayoutParams(new LinearLayout.LayoutParams(
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT, 0f
+            ));
+            holder.mEmailView.setVisibility(View.VISIBLE);
             holder.mEmailView.setText(holder.mItem.getEmail());
+        }
 
         holder.mAvatar.setEmail(holder.mItem.getEmail());
         holder.mAvatar.setUserName(holder.mItem.getName());
-        bindOnItemClickListener(holder.mView, holder.mItem, position);
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        public final View mView;
+    public static class ViewHolder extends StagerViewHolder<Contact> {
         public final TextView mNameView;
         public final TextView mEmailView;
         public final UserAvatar mAvatar;
-        public Contact mItem;
 
         public ViewHolder(View view) {
             super(view);
-            mView = view;
             mNameView = view.findViewById(R.id.item_name);
             mEmailView = view.findViewById(R.id.item_email);
             mAvatar = view.findViewById(R.id.item_avatar);

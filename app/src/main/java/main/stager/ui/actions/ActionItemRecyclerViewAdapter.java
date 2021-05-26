@@ -1,20 +1,17 @@
 package main.stager.ui.actions;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
-import org.jetbrains.annotations.NotNull;
 import main.stager.R;
 import main.stager.linkers.LStatus;
 import main.stager.list.StagerListAdapter;
+import main.stager.list.StagerViewHolder;
 import main.stager.model.Status;
 import main.stager.model.UserAction;
 import main.stager.utils.Utilits;
@@ -39,22 +36,20 @@ public class ActionItemRecyclerViewAdapter
         super(DIFF_CALLBACK);
     }
 
-
-    @NotNull
     @Override
-    public ViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_list_item,
-                        parent, false);
-        if (rotateAnimation == null)
-            rotateAnimation = AnimationUtils.loadAnimation(view.getContext(), R.anim.rotation);
-        return new ViewHolder(view);
+    protected Class<ViewHolder> getViewHolderType() {
+        return ViewHolder.class;
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.mItem = getItem(position);
+    protected void onViewHolderCreated(View view, ViewHolder holder) {
+        super.onViewHolderCreated(view, holder);
+        if (rotateAnimation == null)
+            rotateAnimation = AnimationUtils.loadAnimation(view.getContext(), R.anim.rotation);
+    }
 
+    @Override
+    protected void onBindViewHolderInner(final ViewHolder holder, int position) {
         if (Utilits.isNullOrBlank(holder.mItem.getName()))
             holder.mContentView.setText(R.string.EditActionFragment_message_UntitledAction);
         else
@@ -65,19 +60,14 @@ public class ActionItemRecyclerViewAdapter
 
         if (holder.mItem.getStatus() == Status.WAITING)
             holder.mStatusView.startAnimation(rotateAnimation);
-
-        bindOnItemClickListener(holder.mView, holder.mItem, position);
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        public final View mView;
+    public static class ViewHolder extends StagerViewHolder<UserAction> {
         public final TextView mContentView;
         public final ImageView mStatusView;
-        public UserAction mItem;
 
         public ViewHolder(View view) {
             super(view);
-            mView = view;
             mContentView = view.findViewById(R.id.item_name);
             mStatusView = view.findViewById(R.id.item_icon);
         }

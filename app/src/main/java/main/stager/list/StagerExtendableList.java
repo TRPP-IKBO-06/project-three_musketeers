@@ -8,7 +8,7 @@ import main.stager.model.FBModel;
 
 public abstract class StagerExtendableList<TVM extends StagerListViewModel<T>,
                                            TA extends StagerListAdapter<T,
-                                                      ? extends RecyclerView.ViewHolder>,
+                                                      ? extends StagerViewHolder<T>>,
                                            T extends FBModel> extends StagerList<TVM, TA, T> {
 
     public boolean ALLOW_DRAG_AND_DROP() { return true; }

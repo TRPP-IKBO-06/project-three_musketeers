@@ -3,8 +3,10 @@ package main.stager.ui.add_item.add_action;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import main.stager.StagerApplication;
+import com.google.android.gms.tasks.Task;
+
 import main.stager.list.feature.AddItemFragment;
+import main.stager.utils.BroadcasterHolders.GainedObservable;
 import main.stager.utils.DataProvider;
 import main.stager.R;
 import main.stager.model.Status;
@@ -35,7 +37,10 @@ public class AddActionFragment extends AddItemFragment {
                     ), Toast.LENGTH_LONG).show();
             return;
         }
-        StagerApplication.getDataProvider().addAction(new UserAction(Status.WAITING, name));
-        close();
+        dataProvider.withRequestTracker(new GainedObservable()
+                        .addOnItemGainListener(
+                DataProvider.CBN.ADD_ACTION,
+                t -> ((Task<Void>)t).addOnSuccessListener(e -> close())))
+                .addAction(new UserAction(Status.WAITING, name));
     }
 }

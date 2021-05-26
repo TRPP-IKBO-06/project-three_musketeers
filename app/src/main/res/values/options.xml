@@ -13,4 +13,7 @@
     <string name="Settings__Locale" translatable="false">
         Stager.main.settings.appearance.locale
     </string>
+    <string name="Settings__HideEmail" translatable="false">
+        Stager.main.settings.privacy.hide_email
+    </string>
 </resources>

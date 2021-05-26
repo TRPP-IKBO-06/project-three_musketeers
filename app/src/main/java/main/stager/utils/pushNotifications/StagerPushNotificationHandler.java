@@ -36,14 +36,15 @@ public class StagerPushNotificationHandler {
         );
     }
 
-    public void handleAny(NotificationCompat.Builder builder, RemoteMessage message) {
+    public boolean handleAny(NotificationCompat.Builder builder, RemoteMessage message) {
         handleBasicNotification(builder, message);
         try {
             String event = message.getData().get(EVENT_TYPE);
-            if (event == null) return;
+            if (event == null) return true;
             EventType eventType = EventType.valueOf(event);
-            handleEvent(builder, message, eventType);
+            return handleEvent(builder, message, eventType);
         } catch (IllegalArgumentException ignore) {}
+        return true;
     }
 
     public void handleBasicNotification(NotificationCompat.Builder builder, RemoteMessage message) {
@@ -61,17 +62,20 @@ public class StagerPushNotificationHandler {
             builder.setContentText(body);
     }
 
-    public void handleEvent(NotificationCompat.Builder builder, RemoteMessage message,
+    public boolean handleEvent(NotificationCompat.Builder builder, RemoteMessage message,
                                @NonNull EventType event) {
         builder.setContentTitle(context.getString(EventNotificationBuilder.getTitle(event)))
                .setContentText(context.getString(EventNotificationBuilder.getMessage(event)));
         switch (event) {
-            case FRIENDSHIP_REQUEST: handleFriendshipRequest(builder, message);
-            break;
+            case FRIENDSHIP_REQUEST: return handleFriendshipRequest(builder, message, event);
         }
+        return true;
     }
 
-    public void handleFriendshipRequest(NotificationCompat.Builder builder, RemoteMessage message) {
-        // Do something
+    public boolean handleFriendshipRequest(NotificationCompat.Builder builder,
+                                           RemoteMessage message,
+                                           @NonNull EventType selfEvent) {
+        builder.setGroup(selfEvent.name());
+        return true;
     }
 }

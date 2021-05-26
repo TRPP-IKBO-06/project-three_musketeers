@@ -23,13 +23,15 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"
+            android:configChanges="orientation|screenSize"/>
+
         <activity
             android:name=".Authorization"
+            android:configChanges="orientation|screenSize"
             android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -37,6 +39,7 @@
         <activity
             android:name=".Registration"
             android:label="@string/AuthorizationActivity_Button_Register"
+            android:configChanges="orientation|screenSize"
             android:noHistory="true" />
     </application>
 

@@ -39,6 +39,9 @@
         <string name="Settings_Appearance_Switch_summaryOff_LightMode">Текущая тема: Светлая</string>
         <string name="Settings_Appearance_List_label_Locale">Язык</string>
         <string name="Settings_Appearance_List_summary_Locale">Текущий язык: %1$s</string>
+    <string name="Settings_Category_title_Privacy">Приватность</string>
+        <string name="Settings_Privacy_label_HideEmail">Скрывать почту</string>
+        <string name="Settings_Privacy_Switch_summary_HideEmail">Скрывает почту из возможных контактов</string>
 
     <!-- Список этапов -->
     <string name="EditActionFragment_title">Этапы \"%s\"</string>
