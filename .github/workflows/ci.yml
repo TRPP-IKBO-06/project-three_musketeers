@@ -47,12 +47,13 @@ jobs:
         keyPassword: ${{ secrets.KEY_PASSWORD }}
       env:
         BUILD_TOOLS_VERSION: "29.0.3"
+        
+    - name: Unpacking
+      run: unzip app/build/outputs/apk/release/"Signed app bundle".zip
       
     - name: Upload APK
       uses: actions/upload-artifact@v2
       with:
         name: Signed app bundle
         path: ${{steps.sign_app.outputs.signedReleaseFile}}
-        
-    - name: Unpacking
-      run: unzip "Signed app bundle".zip
+      
