@@ -56,7 +56,7 @@ jobs:
 
   publish:
     runs-on: ubuntu-latest
-    if: contains( github.ref, "release")
+    if: contains( github.ref, 'release')
     needs: build
     steps:
     - name: Create Release
