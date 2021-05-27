@@ -32,11 +32,6 @@ public class AboutMeFragment extends StagerVMFragment<AboutMeViewModel> {
             startActivity(new Intent(this.getActivity(), MainActivity.class));
             this.getActivity().finish();
         });
-
-        view.findViewById(R.id.DEBUG_RESUBSCRIBE).setOnClickListener(v -> {
-            dataProvider.unsubscribeInitial();
-            dataProvider.subscribeInitial();
-        });
     }
 
     @Override
