@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="Notification__channel_id" translatable="false">
+        Stager.main.notification.channel.id.default.TgQs54
+    </string>
+    <string name="Settings__AutoTune" translatable="false">
+        Stager.main.settings.appearance.auto
+    </string>
+    <string name="Settings__Theme" translatable="false">
+        Stager.main.settings.appearance.theme
+    </string>
+    <string name="Settings__Locale" translatable="false">
+        Stager.main.settings.appearance.locale
+    </string>
+    <string name="Settings__HideEmail" translatable="false">
+        Stager.main.settings.privacy.hide_email
+    </string>
+    <string name="Settings__NotifyFriendshipRequest" translatable="false">
+        Stager.main.settings.notifications.friendship.request
+    </string>
+    <string name="Settings__NotifyFriendshipRequestAccepted" translatable="false">
+        Stager.main.settings.notifications.friendship.request.accepted
+    </string>
+    <string name="Settings__ListenActionOnCompleteSucceedDefault" translatable="false">
+        Stager.main.settings.notifications.actions.completed.succeed.default
+    </string>
+    <string name="Settings__ListenActionOnCompleteAbortedDefault" translatable="false">
+        Stager.main.settings.notifications.actions.completed.aborted.default
+    </string>
+</resources>

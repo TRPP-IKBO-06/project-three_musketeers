@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_about_me"
+            android:icon="@drawable/ic_menu_user"
+            android:title="@string/SideBarActivity_NavigationItem_AboutMe" />
+        <item
+            android:id="@+id/nav_my_contacts"
+            android:icon="@drawable/ic_menu_contacts"
+            android:title="@string/SideBarActivity_NavigationItem_MyContacts" />
+        <item
+            android:id="@+id/nav_contact_requests"
+            android:icon="@drawable/ic_contact_request"
+            android:title="@string/ContactRequestsTabsFragment_title" />
+        <item
+            android:id="@+id/nav_my_actions"
+            android:icon="@drawable/ic_menu_actions"
+            android:title="@string/SideBarActivity_NavigationItem_MyActions" />
+        <item
+            android:id="@+id/nav_monitored_actions"
+            android:icon="@drawable/ic_eye_24"
+            android:title="@string/MonitoredActions_title" />
+    </group>
+</menu>

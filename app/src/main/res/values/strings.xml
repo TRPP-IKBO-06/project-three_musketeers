@@ -1,0 +1,236 @@
+<resources>
+    <string name="Application_title">Stager</string>
+
+    <!-- Registration -->
+    <string name="RegistrationActivity_TextView_title_Greeting">Registration</string>
+    <string name="RegistrationActivity_EditText_label_UserName">Name</string>
+    <string name="RegistrationActivity_EditText_label_UserEmail">E-mail</string>
+    <string name="RegistrationActivity_EditText_label_UserPassword">Password</string>
+    <string name="RegistrationActivity_EditText_label_UserPasswordCheck">Repeat your password</string>
+    <string name="RegistrationActivity_ErrorMessage_PasswordNotMatch">Passwords don`t match</string>
+    <string name="RegistrationActivity_Button_Register">Continue</string>
+    <string name="RegistrationActivity_Button_Log_In">Log in</string>
+
+    <!-- Authorization -->
+    <string name="AuthorizationActivity_TextView_title_Greeting">Welcome!</string>
+    <string name="AuthorizationActivity_TextView_label_ForgotPassword">Forgot the password?</string>
+    <string name="AuthorizationActivity_TextView_title_Register">Don`t have an account yet?</string>
+    <string name="AuthorizationActivity_Button_RestoreAccount">Restore account</string>
+    <string name="AuthorizationActivity_Button_Register">Registration</string>
+    <string name="AuthorizationActivity_ErrorMessage_NoInternet">No internet connection</string>
+    <string name="AuthorizationActivity_Toast_CheckEmail">Check your E-mail</string>
+    <string name="AuthorizationActivity_Toast_ErrorRestore">You can`t restore your account</string>
+    <string name="AuthorizationActivity_Toast_ErrorAuthorization">Authorization error</string>
+
+    <!-- Validation -->
+    <string name="Validator_ErrorMessage_NoName">Name is empty</string>
+    <string name="Validator_ErrorMessage_MinLengthName">Minimum name length 2</string>
+    <string name="Validator_ErrorMessage_MaxLengthName">Maximum name length 12</string>
+    <string name="Validator_ErrorMessage_WrongName">Name contains unsupported
+        symbols ( Allowed: Rus, Eng )</string>
+    <string name="Validator_ErrorMessage_Spaces">Spaces before the name</string>
+    <string name="Validator_ErrorMessage_NoEmail">Email is empty</string>
+    <string name="Validator_ErrorMessage_MinLengthEmail">Minimum email length 5</string>
+    <string name="Validator_ErrorMessage_MaxLengthEmail">Maximum email length 60</string>
+    <string name="Validator_ErrorMessage_IncorrectEmail">Incorrect email format</string>
+    <string name="Validator_ErrorMessage_NoPassword">Password is empty</string>
+    <string name="Validator_ErrorMessage_MinLengthPassword">Minimum password length 6</string>
+    <string name="Validator_ErrorMessage_MaxLengthPassword">Maximum password length 100</string>
+    <string name="Validator_ErrorMessage_NullDescription">Invalid value in the description</string>
+    <string name="Validator_ErrorMessage_MaxLengthDescription">Maximum description length 255</string>
+    <string name="Validator_ErrorMessage_MaxLengthActionName">Maximum name length 24</string>
+
+    <!-- Settings -->
+    <string name="Settings_title">Settings</string>
+    <string name="Settings_Category_title_Appearance">Appearance</string>
+        <string name="Settings_Appearance_label_AutoTune">Use system defaults</string>
+            <string name="Settings_Appearance_Switch_summaryOn_AutoTune">
+                Setup theme and language according with system ones\n
+                (Toggle this option will restart entire app)\n
+                State: Enabled
+            </string>
+            <string name="Settings_Appearance_Switch_summaryOff_AutoTune">
+                Setup theme and language according with system ones\n
+                (Toggle this option will restart entire app)\n
+                State: Disabled
+            </string>
+        <string name="Settings_Appearance_label_Theme">Dark theme</string>
+            <string name="Settings_Appearance_Switch_summaryOn_DarkMode">Current theme: Dark</string>
+            <string name="Settings_Appearance_Switch_summaryOff_LightMode">Current theme: Light</string>
+        <string name="Settings_Appearance_List_label_Locale">Language</string>
+            <string name="Settings_Appearance_List_summary_Locale">Current language: %s</string>
+    <string name="Settings_Category_title_Privacy">Privacy</string>
+        <string name="Settings_Privacy_label_HideEmail">Hide email</string>
+            <string name="Settings_Privacy_Switch_summaryOn_HideEmail">
+                Your email is hidden from other users\n
+                No one can send you friendship request
+            </string>
+            <string name="Settings_Privacy_Switch_summaryOff_HideEmail">
+                Your email is shown for other users\n
+                Everyone can send you friendship request
+            </string>
+    <string name="Settings_Category_title_Notifications">Notifications</string>
+        <string name="Settings_Notifications_label_FriendshipRequests">Friendship requests</string>
+            <string name="Settings_Notifications_Switch_summaryOn_FriendshipRequests">
+                You will receive a notification\n
+                When someone sends you friendship request
+            </string>
+            <string name="Settings_Notifications_Switch_summaryOff_FriendshipRequests">
+                Nothing will happen\n
+                When someone sends you friendship request
+            </string>
+        <string name="Settings_Notifications_label_FriendshipRequestsAccepted">Accepted friendship requests</string>
+            <string name="Settings_Notifications_Switch_summaryOn_FriendshipRequestsAccepted">
+                You will receive a notification\n
+                When someone accepts your friendship request
+            </string>
+            <string name="Settings_Notifications_Switch_summaryOff_FriendshipRequestsAccepted">
+                Nothing will happen\n
+                When someone accepts your friendship request
+            </string>
+    <string name="Settings_Category_title_Notifications_AutoSubscribe">Automatically subscribe on</string>
+        <string name="Settings_Notifications_label_ListenActionOnCompleteAbortedDefault">Action aborted</string>
+            <string name="Settings_Notifications_Switch_summaryOn_ListenActionOnCompleteAbortedDefault">
+                After new action shared for you\n
+                You will been notified each time this action aborted\n
+                (You can customize this behaviour individually)
+            </string>
+            <string name="Settings_Notifications_Switch_summaryOff_ListenActionOnCompleteAbortedDefault">
+                After new action shared for you\n
+                Nothing will happen if this action aborted\n
+                (You can customize this behaviour individually)
+            </string>
+        <string name="Settings_Notifications_label_ListenActionOnCompleteSucceedDefault">Action successfully completed</string>
+            <string name="Settings_Notifications_Switch_summaryOn_ListenActionOnCompleteSucceedDefault">
+                After new action shared for you\n
+                You will been notified each time this action completed successfully\n
+                (You can customize this behaviour individually)
+            </string>
+            <string name="Settings_Notifications_Switch_summaryOff_ListenActionOnCompleteSucceedDefault">
+                After new action shared for you\n
+                Nothing will happen if this action completed successfully\n
+                (You can customize this behaviour individually)
+            </string>
+
+    <!-- Edit action -->
+    <string name="EditActionFragment_title">Stages of \"%s\"</string>
+    <string name="EditActionFragment_message_UntitledAction">Untitled</string>
+    <string name="EditActionFragment_StagesList_NoItemsMessage">No stages yet..</string>
+    <string name="EditActionFragment_Button_text_Observers">Observers</string>
+
+    <!-- Monitored action -->
+    <string name="MonitoredActionFragment_title">Stages of \"%s\"</string>
+    <string name="MonitoredActionFragment_message_UntitledAction">Untitled</string>
+    <string name="MonitoredActionFragment_StagesList_NoItemsMessage">No stages yet..</string>
+    <string name="MonitoredActionFragment_Button_text_Owner">Owner</string>
+
+    <!-- SideBar -->
+    <string name="SideBarActivity_title">SideBar</string>
+    <string name="SideBarActivity_TextView_label">User name</string>
+    <string name="SideBarActivity_ImageView_UserPicture">Navigation header</string>
+    <string name="SideBarActivity_ActionSettings">Settings</string>
+    <string name="SideBarActivity_NavigationItem_AboutMe">About me</string>
+    <string name="SideBarActivity_NavigationItem_MyContacts">Contacts</string>
+    <string name="SideBarActivity_NavigationItem_MyActions">Actions</string>
+
+    <!-- About me -->
+    <string name="AboutMeFragment_TextView_title_MyAccount">My account</string>
+    <string name="AboutMeFragment_EditText_hint_contextName">Name</string>
+    <string name="AboutMeFragment_EditText_hint_contextDescription">Description</string>
+    <string name="AboutMeFragment_TextView_label_ChangePassword">Сhange your password?</string>
+    <string name="AboutMeFragment_Button_ChangePassword">Change</string>
+    <string name="AboutMeFragment_Button_ExitInAccount">Log out of account</string>
+
+    <!-- Update password -->
+    <string name="UpdatePasswordFragment_title">Change password</string>
+    <string name="UpdatePasswordFragment_TextView_title_ConfirmOldPassword">Confirm Password</string>
+    <string name="UpdatePasswordFragment_TextView_label_Info">To change your password,
+        enter the current one</string>
+    <string name="UpdatePasswordFragment_EditText_hint_context">Enter your old password</string>
+    <string name="UpdatePasswordFragment_ErrorMessage_PasswordIsNotCorrect">Password isn`t correct</string>
+    <string name="UpdatePasswordFragment_Button_ConfirmOldPassword">Confirm old password</string>
+    <string name="UpdatePasswordFragment_TextView_title_ChangePassword">Change password</string>
+    <string name="UpdatePasswordFragment_EditText_hint_NewPassword">New password</string>
+    <string name="UpdatePasswordFragment_ErrorMessage_PasswordsDoNotMatch">Passwords don`t match</string>
+    <string name="UpdatePasswordFragment_EditText_hint_NewPasswordConfirm">Confirm password</string>
+    <string name="UpdatePasswordFragment_Button_ChangePassword">Change it</string>
+    <string name="UpdatePasswordFragment_Toast_PasswordUpdate">Password update</string>
+    <string name="UpdatePasswordFragment_ErrorMessage_PasswordNotUpdate">Password not update</string>
+
+    <!-- Add action -->
+    <string name="AddActionFragment_title">New action</string>
+    <string name="AddActionFragment_EditText_hint_context">Title</string>
+    <string name="AddActionFragment_ErrorMessage">Unable to create new action: %s</string>
+    <string name="AddActionFragment_ErrorMessage_ReasonNoName">missing title</string>
+
+    <!-- Add action stage -->
+    <string name="AddStageFragment_title">Next stage</string>
+    <string name="AddStageFragment_EditText_InputHint">Title</string>
+    <string name="AddStageFragment_ErrorMessage">Unable to create new stage: %s</string>
+    <string name="AddStageFragment_ErrorMessage_ReasonNoName">missing title</string>
+
+    <!-- Item edit menu -->
+    <string name="ItemEditMenu_title_SaveChanges">Save</string>
+
+    <!-- Search menu -->
+    <string name="SearchMenu_title">Search</string>
+
+    <!-- Common List -->
+    <string name="CommonList_EmptyListView_TextView_text">Here is nothing</string>
+    <string name="CommonList_LoadingListView_TextView_text">Loading...</string>
+    <string name="CommonList_ErrorListView_TextView_text">Error occurred: %s</string>
+
+    <!-- Edit action stage -->
+    <string name="EditStageFragment_title">Stage</string>
+    <string name="EditStageFragment_message_UntitledStage">Untitled stage</string>
+
+    <!-- Find new contacts -->
+    <string name="FindNewContactsFragment_title">Find new contact</string>
+    <string name="FindNewContactsFragment_message_revoke">Revoke request to \"%s\"</string>
+    <string name="FindNewContactsFragment_message_success">Send request to \"%s\"</string>
+    <string name="FindNewContactsFragment_message_denied">Request denied</string>
+    <string name="FindNewContactsFragment_message_accepted">Accepted request from \"%s\"</string>
+    <string name="FindNewContactsFragment_message_queryHint">Input E-mail</string>
+
+    <!-- Find contacts -->
+    <string name="FindContactsFragment_title">Find contact</string>
+    <string name="FindContactsFragment_message_queryHint">Input name</string>
+    <string name="FindContactsFragment_message_revoke">Revoke access from \"%s\"</string>
+    <string name="FindContactsFragment_message_success">Grant access to \"%s\"</string>
+
+    <!-- Edit action subscribers -->
+    <string name="EditSubscribersFragment_title">Observe \"%s\"</string>
+
+    <!-- Contact info -->
+    <string name="ContactInfoFragment_title">About \"%s\"</string>
+    <string name="ContactInfoFragment_TextView_label_UserName">Name:</string>
+    <string name="ContactInfoFragment_TextView_label_UserEmail">E-mail:</string>
+    <string name="ContactInfoFragment_TextView_label_Description">Description:</string>
+    <string name="ContactInfoFragment_message_AnonymousUser">Anonymous User</string>
+    <string name="ContactInfoFragment_header_type_incoming">Incoming request</string>
+    <string name="ContactInfoFragment_header_type_outgoing">Outgoing request</string>
+    <string name="ContactInfoFragment_header_type_ignored">You hide this request</string>
+    <string name="ContactInfoFragment_header_type_accepted">In your contacts</string>
+
+    <!-- Contact requests -->
+    <string name="ContactRequestsTabsFragment_title">Friendship requests</string>
+    <string name="ContactRequestsTabsFragment_Tab_title_incoming">Incoming</string>
+    <string name="ContactRequestsTabsFragment_Tab_title_outgoing">Outgoing</string>
+    <string name="ContactRequestsTabsFragment_Tab_title_ignored">Ignored</string>
+
+    <!-- Monitored actions -->
+    <string name="MonitoredActions_title">Monitored actions</string>
+        <!-- All -->
+        <string name="AllMonitoredActions_title">All</string>
+
+        <!-- Grouped -->
+        <string name="GroupedMonitoredActions_title">Grouped</string>
+
+    <!-- Notifications -->
+    <string name="Notifications_group_Friendship">Friendship</string>
+        <string name="Notifications_message_FriendshipRequest">You\'ve got new friendship request :)</string>
+        <string name="Notifications_message_FriendshipRequestAccepted">Your friendship request accepted</string>
+    <string name="Notifications_group_ActionCompleted">Action completed</string>
+        <string name="Notifications_message_ActionCompletedSucceed">Action successfully completed</string>
+        <string name="Notifications_message_ActionCompletedAborted">Action aborted</string>
+</resources>

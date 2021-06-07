@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Application_title">В пути</string>
+
+    <!-- Регистрация -->
+    <string name="RegistrationActivity_TextView_title_Greeting">Регистрация</string>
+    <string name="RegistrationActivity_EditText_label_UserName">Имя</string>
+    <string name="RegistrationActivity_EditText_label_UserEmail">Почта</string>
+    <string name="RegistrationActivity_EditText_label_UserPassword">Пароль</string>
+    <string name="RegistrationActivity_EditText_label_UserPasswordCheck">Повторите пароль</string>
+    <string name="RegistrationActivity_ErrorMessage_PasswordNotMatch">Пароли не совпадают</string>
+    <string name="RegistrationActivity_Button_Register">Продолжить</string>
+    <string name="RegistrationActivity_Button_Log_In">Вход</string>
+
+    <!-- Авторизация -->
+    <string name="AuthorizationActivity_TextView_title_Greeting">Добро пожаловать!</string>
+    <string name="AuthorizationActivity_TextView_label_ForgotPassword">Забыли пароль?</string>
+    <string name="AuthorizationActivity_Button_RestoreAccount">Восстановить аккаунт</string>
+    <string name="AuthorizationActivity_TextView_title_Register">Еще нет аккаунта?</string>
+    <string name="AuthorizationActivity_Button_Register">Регистрация</string>
+    <string name="AuthorizationActivity_ErrorMessage_NoInternet">Нет подключения к интернету</string>
+    <string name="AuthorizationActivity_Toast_CheckEmail">Проверьте свою электронную почту</string>
+    <string name="AuthorizationActivity_Toast_ErrorRestore">Вы не можете восстановить
+        свою учетную запись</string>
+    <string name="AuthorizationActivity_Toast_ErrorAuthorization">Ошибка авторизации</string>
+
+    <!-- Валидация -->
+    <string name="Validator_ErrorMessage_NoName">Отсутствует имя</string>
+    <string name="Validator_ErrorMessage_MinLengthName">Минимальная длина имени 2</string>
+    <string name="Validator_ErrorMessage_MaxLengthName">Максимальная длина имени 12</string>
+    <string name="Validator_ErrorMessage_WrongName">Имя содержит неподдерживаемые
+        символы ( Разрешены: Rus, Eng )</string>
+    <string name="Validator_ErrorMessage_Spaces">Пробелы перед именем неразрешены</string>
+    <string name="Validator_ErrorMessage_NoEmail">Отсутствует почта</string>
+    <string name="Validator_ErrorMessage_MinLengthEmail">Минимальная длина почты 5</string>
+    <string name="Validator_ErrorMessage_MaxLengthEmail">Максимальная длина почты 60</string>
+    <string name="Validator_ErrorMessage_IncorrectEmail">Некорректный формат почты</string>
+    <string name="Validator_ErrorMessage_NoPassword">Отсутствует пароль</string>
+    <string name="Validator_ErrorMessage_MinLengthPassword">Минимальная длина пароля 6</string>
+    <string name="Validator_ErrorMessage_MaxLengthPassword">Максимальная длина пароля 100</string>
+    <string name="Validator_ErrorMessage_NullDescription">Некорректное значение в описании</string>
+    <string name="Validator_ErrorMessage_MaxLengthDescription">Максимальная длина описания 255</string>
+    <string name="Validator_ErrorMessage_MaxLengthActionName">Максимальная длина имени 24</string>
+
+    <!-- Настройки -->
+    <string name="Settings_title">Настройки</string>
+    <string name="Settings_Category_title_Appearance">Внешний вид</string>
+        <string name="Settings_Appearance_label_AutoTune">Системные значения</string>
+            <string name="Settings_Appearance_Switch_summaryOn_AutoTune">
+                Устанавливает тему и язык в соответствии с системными значениями\n
+                (Изменение этого параметра перезагрузит приложение)\n
+                Состояние: Включено
+            </string>
+            <string name="Settings_Appearance_Switch_summaryOff_AutoTune">
+                Устанавливает тему и язык в соответствии с системными значениями\n
+                (Изменение этого параметра перезагрузит приложение)\n
+                Состояние: Отключено
+            </string>
+        <string name="Settings_Appearance_label_Theme">Тёмная тема</string>
+            <string name="Settings_Appearance_Switch_summaryOn_DarkMode">Текущая тема: Тёмная</string>
+            <string name="Settings_Appearance_Switch_summaryOff_LightMode">Текущая тема: Светлая</string>
+        <string name="Settings_Appearance_List_label_Locale">Язык</string>
+            <string name="Settings_Appearance_List_summary_Locale">Текущий язык: %s</string>
+    <string name="Settings_Category_title_Privacy">Приватность</string>
+        <string name="Settings_Privacy_label_HideEmail">Скрывать почту</string>
+            <string name="Settings_Privacy_Switch_summaryOn_HideEmail">
+                Ваша почта скрыта от других пользователей\n
+                Никто не может послать Вам запрос дружбы
+            </string>
+            <string name="Settings_Privacy_Switch_summaryOff_HideEmail">
+                Ваша почта видна другим пользователям\n
+                Любой может послать Вам запрос дружбы
+            </string>
+    <string name="Settings_Category_title_Notifications">Уведомления</string>
+        <string name="Settings_Notifications_label_FriendshipRequests">Запросы дружбы</string>
+            <string name="Settings_Notifications_Switch_summaryOn_FriendshipRequests">
+                Когда кто-то пошлёт Вам запрос дружбы\n
+                Вам придёт уведомление
+            </string>
+            <string name="Settings_Notifications_Switch_summaryOff_FriendshipRequests">
+                Когда кто-то пошлёт Вам запрос дружбы\n
+                Ничего не произойдёт
+            </string>
+        <string name="Settings_Notifications_label_FriendshipRequestsAccepted">Принятые запросы дружбы</string>
+            <string name="Settings_Notifications_Switch_summaryOn_FriendshipRequestsAccepted">
+                Когда кто-то примет Ваш запрос дружбы\n
+                Вам придёт уведомление
+            </string>
+            <string name="Settings_Notifications_Switch_summaryOff_FriendshipRequestsAccepted">
+                Когда кто-то примет Ваш запрос дружбы\n
+                Ничего не произойдёт
+            </string>
+    <string name="Settings_Category_title_Notifications_AutoSubscribe">Автоматически подписываться на</string>
+        <string name="Settings_Notifications_label_ListenActionOnCompleteAbortedDefault">Прерывание мероприятия</string>
+            <string name="Settings_Notifications_Switch_summaryOn_ListenActionOnCompleteAbortedDefault">
+                После предоставления Вам доступа к новому мероприятию\n
+                Вы будете получать уведомления, всякий раз,
+                когда это мероприятие будет завершено досрочно (прервано)\n
+                (Это поведение можно настраивать индивидуально)
+            </string>
+            <string name="Settings_Notifications_Switch_summaryOff_ListenActionOnCompleteAbortedDefault">
+                После предоставления Вам доступа к новому мероприятию\n
+                Ничего не случится,
+                если это мероприятие будет завершено досрочно (прервано)\n
+                (Это поведение можно настраивать индивидуально)
+            </string>
+        <string name="Settings_Notifications_label_ListenActionOnCompleteSucceedDefault">Успех мероприятия</string>
+            <string name="Settings_Notifications_Switch_summaryOn_ListenActionOnCompleteSucceedDefault">
+                После предоставления Вам доступа к новому мероприятию\n
+                Вы будете получать уведомления, всякий раз,
+                когда это мероприятие будет завершено успешно\n
+                (Это поведение можно настраивать индивидуально)
+            </string>
+            <string name="Settings_Notifications_Switch_summaryOff_ListenActionOnCompleteSucceedDefault">
+                После предоставления Вам доступа к новому мероприятию\n
+                Ничего не случится,
+                если это мероприятие будет завершено успешно\n
+                (Это поведение можно настраивать индивидуально)
+            </string>
+
+    <!-- Список этапов -->
+    <string name="EditActionFragment_title">Этапы \"%s\"</string>
+    <string name="EditActionFragment_message_UntitledAction">Без названия</string>
+    <string name="EditActionFragment_StagesList_NoItemsMessage">Стадий пока нет..</string>
+    <string name="EditActionFragment_Button_text_Observers">Наблюдатели</string>
+
+    <!-- Отслеживаемое мероприятие -->
+    <string name="MonitoredActionFragment_title">Этапы \"%s\"</string>
+    <string name="MonitoredActionFragment_message_UntitledAction">Без названия</string>
+    <string name="MonitoredActionFragment_StagesList_NoItemsMessage">Стадий пока нет..</string>
+    <string name="MonitoredActionFragment_Button_text_Owner">Владелец</string>
+
+    <!-- Боковое меню -->
+    <string name="SideBarActivity_title">Боковое меню</string>
+    <string name="SideBarActivity_TextView_label">Имя пользователя</string>
+    <string name="SideBarActivity_ImageView_UserPicture">Навигационный заголовок</string>
+    <string name="SideBarActivity_ActionSettings">Настройки</string>
+    <string name="SideBarActivity_NavigationItem_AboutMe">Обо мне</string>
+    <string name="SideBarActivity_NavigationItem_MyContacts">Контакты</string>
+    <string name="SideBarActivity_NavigationItem_MyActions">Мероприятия</string>
+
+    <!-- Обо мне -->
+    <string name="AboutMeFragment_TextView_title_MyAccount">Мой аккаунт</string>
+    <string name="AboutMeFragment_EditText_hint_contextName">Имя</string>
+    <string name="AboutMeFragment_EditText_hint_contextDescription">Описание</string>
+    <string name="AboutMeFragment_Button_ExitInAccount">Выход из аккаунта</string>
+    <string name="AboutMeFragment_TextView_label_ChangePassword">Хотите сменить пароль?</string>
+    <string name="AboutMeFragment_Button_ChangePassword">Сменить</string>
+
+    <!-- Обновить пароль -->
+    <string name="UpdatePasswordFragment_title">Смена пароля</string>
+    <string name="UpdatePasswordFragment_TextView_title_ChangePassword">Смена пароля</string>
+    <string name="UpdatePasswordFragment_TextView_label_Info">Чтобы сменить пароль, введите текущий</string>
+    <string name="UpdatePasswordFragment_TextView_title_ConfirmOldPassword">Подтверждение пароля</string>
+    <string name="UpdatePasswordFragment_EditText_hint_context">Введите старый пароль</string>
+    <string name="UpdatePasswordFragment_ErrorMessage_PasswordIsNotCorrect">Пароль неправильный</string>
+    <string name="UpdatePasswordFragment_Button_ConfirmOldPassword">Подтвердить старый пароль</string>
+    <string name="UpdatePasswordFragment_EditText_hint_NewPassword">Новый пароль</string>
+    <string name="UpdatePasswordFragment_ErrorMessage_PasswordsDoNotMatch">Пароли не совпадают</string>
+    <string name="UpdatePasswordFragment_EditText_hint_NewPasswordConfirm">Подтвердите пароль</string>
+    <string name="UpdatePasswordFragment_Button_ChangePassword">Сменить</string>
+    <string name="UpdatePasswordFragment_Toast_PasswordUpdate">Пароль изменен</string>
+    <string name="UpdatePasswordFragment_ErrorMessage_PasswordNotUpdate">Пароль не изменен</string>
+
+    <!-- Добавить мероприятие -->
+    <string name="AddActionFragment_title">Новое мероприятие</string>
+    <string name="AddActionFragment_EditText_hint_context">Заголовок</string>
+    <string name="AddActionFragment_ErrorMessage">Невозможно создать мероприятие: %s</string>
+    <string name="AddActionFragment_ErrorMessage_ReasonNoName">отсутствует название</string>
+
+    <!-- Добавить этап мероприятия -->
+    <string name="AddStageFragment_title">Очередной этап</string>
+    <string name="AddStageFragment_EditText_InputHint">Заголовок</string>
+    <string name="AddStageFragment_ErrorMessage">Невозможно создать стадию: %s</string>
+    <string name="AddStageFragment_ErrorMessage_ReasonNoName">отсутствует название</string>
+
+    <!-- Меню редактирования чего-либо -->
+    <string name="ItemEditMenu_title_SaveChanges">Сохранить</string>
+
+    <!-- Меню поиска -->
+    <string name="SearchMenu_title">Поиск</string>
+
+    <!-- Общее для списков -->
+    <string name="CommonList_EmptyListView_TextView_text">Тут ничего нет</string>
+    <string name="CommonList_LoadingListView_TextView_text">Загрузка...</string>
+    <string name="CommonList_ErrorListView_TextView_text">Произошла ошибка: %s</string>
+
+    <!-- Изменить этап мероприятия -->
+    <string name="EditStageFragment_title">Этап</string>
+    <string name="EditStageFragment_message_UntitledStage">Безымянный этап</string>
+
+    <!-- Найти новые контакты -->
+    <string name="FindNewContactsFragment_title">Найти новый контакт</string>
+    <string name="FindNewContactsFragment_message_revoke">Отменён запрос к \"%s\"</string>
+    <string name="FindNewContactsFragment_message_success">Запрос отправлен \"%s\"</string>
+    <string name="FindNewContactsFragment_message_denied">Запрос отклонён</string>
+    <string name="FindNewContactsFragment_message_accepted">Принят запрос от \"%s\"</string>
+    <string name="FindNewContactsFragment_message_queryHint">Введите адрес эл.почты</string>
+
+    <!-- Найти контакты -->
+    <string name="FindContactsFragment_title">Найти контакт</string>
+    <string name="FindContactsFragment_message_queryHint">Введите имя</string>
+    <string name="FindContactsFragment_message_revoke">Закрыт доступ для \"%s\"</string>
+    <string name="FindContactsFragment_message_success">Предоставлен доступ для \"%s\"</string>
+
+    <!-- Изменить список наблюдателей мероприятия -->
+    <string name="EditSubscribersFragment_title">Следят за \"%s\"</string>
+
+    <!-- Информация о контакте -->
+    <string name="ContactInfoFragment_title">О \"%s\"</string>
+    <string name="ContactInfoFragment_TextView_label_UserName">Имя:</string>
+    <string name="ContactInfoFragment_TextView_label_UserEmail">Почта:</string>
+    <string name="ContactInfoFragment_TextView_label_Description">Описание:</string>
+    <string name="ContactInfoFragment_message_AnonymousUser">Анонимный Пользователь</string>
+    <string name="ContactInfoFragment_header_type_incoming">Входящий запрос</string>
+    <string name="ContactInfoFragment_header_type_outgoing">Исходящий запрос</string>
+    <string name="ContactInfoFragment_header_type_ignored">Вы скрыли этот запрос</string>
+    <string name="ContactInfoFragment_header_type_accepted">Из контактов</string>
+
+    <!-- Запрос на добавление контакта -->
+    <string name="ContactRequestsTabsFragment_title">Предложения дружбы</string>
+    <string name="ContactRequestsTabsFragment_Tab_title_incoming">Входящие</string>
+    <string name="ContactRequestsTabsFragment_Tab_title_outgoing">Исходящие</string>
+    <string name="ContactRequestsTabsFragment_Tab_title_ignored">Скрытые</string>
+
+    <!-- Отслеживаемые мероприятия -->
+    <string name="MonitoredActions_title">Отслеживаемые мероприятия</string>
+        <!-- Все -->
+        <string name="AllMonitoredActions_title">Все</string>
+
+        <!-- Сгрупперованные -->
+        <string name="GroupedMonitoredActions_title">Сгруппированные</string>
+
+    <!-- Уведомления -->
+    <string name="Notifications_group_Friendship">Дружба</string>
+        <string name="Notifications_message_FriendshipRequest">Вам пришёл новый запрос в друзья :)</string>
+        <string name="Notifications_message_FriendshipRequestAccepted">Ваш запрос в друзья принят</string>
+    <string name="Notifications_group_ActionCompleted">Мероприятие завершено</string>
+        <string name="Notifications_message_ActionCompletedSucceed">Мероприятие успешно завершено</string>
+        <string name="Notifications_message_ActionCompletedAborted">Мероприятие прервано</string>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.edit_item.edit_action.EditActionFragment"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/edit_action_input_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:maxLength="24"
+        android:hint="@string/EditActionFragment_message_UntitledAction" />
+    <Button
+        android:id="@+id/btn_open_action_subscribers_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="4dp"
+        android:layout_marginHorizontal="8dp"
+        android:text="@string/EditActionFragment_Button_text_Observers"/>
+
+    <include layout="@layout/fragment_extendable_list"/>
+
+</LinearLayout>

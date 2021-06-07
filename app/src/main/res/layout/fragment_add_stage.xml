@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.add_item.add_stage.AddStageFragment"
+    android:orientation="vertical">
+    <EditText
+        android:id="@+id/add_stage_input_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:nextFocusForward="@id/btn_save_changes"
+        android:nextFocusDown="@id/btn_save_changes"
+        android:hint="@string/AddStageFragment_EditText_InputHint" />
+
+    <Button
+        android:id="@+id/btn_save_changes"
+        android:layout_width="1dp"
+        android:layout_height="1dp"/>
+</LinearLayout>

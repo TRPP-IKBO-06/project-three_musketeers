@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/btn_toggle_onSuccessListen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_gravity="center"
+            android:background="@null"
+            android:src="@drawable/ic_listen_on_action_succeed" />
+
+        <Button
+            android:id="@+id/btn_open_action_owner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="4dp"
+            android:layout_marginVertical="4dp"
+            android:layout_weight="6"
+            android:text="@string/MonitoredActionFragment_Button_text_Owner" />
+
+        <ImageButton
+            android:id="@+id/btn_toggle_onAbortedListen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_gravity="center"
+            android:background="@null"
+            android:src="@drawable/ic_listen_on_action_aborted" />
+
+    </LinearLayout>
+
+    <include layout="@layout/fragment_list"/>
+
+</LinearLayout>

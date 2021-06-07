@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory app:title="@string/Settings_Category_title_Appearance">
+        <SwitchPreferenceCompat
+            app:key="@string/Settings__AutoTune"
+            app:title="@string/Settings_Appearance_label_AutoTune"
+            android:defaultValue="true"
+            android:disableDependentsState="true"
+            app:summaryOn="@string/Settings_Appearance_Switch_summaryOn_AutoTune"
+            app:summaryOff="@string/Settings_Appearance_Switch_summaryOff_AutoTune"
+            />
+        <SwitchPreferenceCompat
+            android:dependency="@string/Settings__AutoTune"
+            app:key="@string/Settings__Theme"
+            app:title="@string/Settings_Appearance_label_Theme"
+            android:icon="@drawable/ic_baseline_color_lens_24"
+            app:summaryOn="@string/Settings_Appearance_Switch_summaryOn_DarkMode"
+            app:summaryOff="@string/Settings_Appearance_Switch_summaryOff_LightMode"
+            />
+        <ListPreference
+            android:dependency="@string/Settings__AutoTune"
+            app:key="@string/Settings__Locale"
+            app:title="@string/Settings_Appearance_List_label_Locale"
+            app:icon="@drawable/ic_baseline_language_24"
+            app:summary="@string/Settings_Appearance_List_summary_Locale"
+            app:entries="@array/locales_names"
+            app:entryValues="@array/locales"
+            />
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/Settings_Category_title_Privacy">
+        <SwitchPreferenceCompat
+            app:key="@string/Settings__HideEmail"
+            app:title="@string/Settings_Privacy_label_HideEmail"
+            android:icon="@drawable/ic_email_24"
+            app:summaryOn="@string/Settings_Privacy_Switch_summaryOn_HideEmail"
+            app:summaryOff="@string/Settings_Privacy_Switch_summaryOff_HideEmail"
+            />
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/Settings_Category_title_Notifications">
+        <SwitchPreferenceCompat
+            app:key="@string/Settings__NotifyFriendshipRequest"
+            app:title="@string/Settings_Notifications_label_FriendshipRequests"
+            android:defaultValue="true"
+            app:summaryOn="@string/Settings_Notifications_Switch_summaryOn_FriendshipRequests"
+            app:summaryOff="@string/Settings_Notifications_Switch_summaryOff_FriendshipRequests"
+            />
+        <SwitchPreferenceCompat
+            app:key="@string/Settings__NotifyFriendshipRequestAccepted"
+            app:title="@string/Settings_Notifications_label_FriendshipRequestsAccepted"
+            app:summaryOn="@string/Settings_Notifications_Switch_summaryOn_FriendshipRequestsAccepted"
+            app:summaryOff="@string/Settings_Notifications_Switch_summaryOff_FriendshipRequestsAccepted"
+            />
+
+        <PreferenceCategory app:title="@string/Settings_Category_title_Notifications_AutoSubscribe">
+            <SwitchPreferenceCompat
+                app:key="@string/Settings__ListenActionOnCompleteSucceedDefault"
+                app:title="@string/Settings_Notifications_label_ListenActionOnCompleteSucceedDefault"
+                app:summaryOn="@string/Settings_Notifications_Switch_summaryOn_ListenActionOnCompleteAbortedDefault"
+                app:summaryOff="@string/Settings_Notifications_Switch_summaryOff_ListenActionOnCompleteAbortedDefault"
+                />
+            <SwitchPreferenceCompat
+                app:key="@string/Settings__ListenActionOnCompleteAbortedDefault"
+                app:title="@string/Settings_Notifications_label_ListenActionOnCompleteAbortedDefault"
+                app:summaryOn="@string/Settings_Notifications_Switch_summaryOn_ListenActionOnCompleteSucceedDefault"
+                app:summaryOff="@string/Settings_Notifications_Switch_summaryOff_ListenActionOnCompleteSucceedDefault"
+                />
+        </PreferenceCategory>
+    </PreferenceCategory>
+</PreferenceScreen>

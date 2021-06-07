@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.add_item.add_stage.AddStageFragment"
+    android:orientation="vertical">
+    <EditText
+        android:id="@+id/edit_stage_input_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:maxLength="24"
+        android:hint="@string/EditStageFragment_message_UntitledStage" />
+    <LinearLayout
+        android:id="@+id/edit_stage_layout_controls"
+        android:visibility="gone"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/edit_stage_button_success"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_status_succed"/>
+        <ImageButton
+            android:id="@+id/edit_stage_button_abort"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_status_aborted"/>
+    </LinearLayout>
+</LinearLayout>
